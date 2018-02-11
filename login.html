@@ -3,53 +3,88 @@
 <head>
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<link rel="author" href="https://plus.google.com/+AlexDevero">
-    <link rel="apple-touch-icon" sizes="180x180" href="./images/favicon/apple-touch-icon.png?v=aljm6MJg7L">
-    <link rel="icon" type="image/png" href="./images/favicon/favicon-32x32.png?v=aljm6MJg7L" sizes="32x32">
-    <link rel="icon" type="image/png" href="./images/favicon/favicon-16x16.png?v=aljm6MJg7L" sizes="16x16">
-    <link rel="manifest" href="./images/favicon/manifest.json?v=aljm6MJg7L">
-    <link rel="mask-icon" href="./images/favicon/safari-pinned-tab.svg?v=aljm6MJg7L" color="#d30320">
-    <link rel="shortcut icon" href="./images/favicon/favicon.ico?v=aljm6MJg7L">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Franklin:300,400,700&amp;subset=latin-ext">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700&amp;subset=latin-ext">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link class="js-stylesheet-main" rel="stylesheet" href="./styles/main.min.css">
 
-    <noscript>
+	<title>LOGIN</title>
+	<noscript>
     <style>html{display:block;opacity:1}</style>
     </noscript>
-
-	<script src="js/plugins/modernizr-custom.min.js" async defer="defer"></script>
-
-	<script>!function(t,h,e,j,n,s){t.hj=t.hj||function(){(t.hj.q=t.hj.q||[]).push(arguments)},t._hjSettings={hjid:38630,hjsv:5},n=h.getElementsByTagName("head")[0],(s=h.createElement("script")).async=1,s.src="//static.hotjar.com/c/hotjar-"+t._hjSettings.hjid+".js?sv="+t._hjSettings.hjsv,n.appendChild(s)}(window,document)</script>
 </head>
 <body>
+	<main>
+		<header>
+			<!-- <h1></h1>
+			<h1><font color="#d30320">BITS | Connect</font></h1> -->
+		</header>
+		<div class="jumbotron">
+			<center><h1><font color="#d30320">BITS | Connect</font></h1></center>
+		</div>
 
-	<body class="page--home">
+		<center><h3>Please sign in using your BITS Credentials.</h3></center>
 
-    <main>
-    	<!-- <header>
-	        <div class="container-fluid">
-	          	<nav>
-	            <input id="js-checkbox--nav" class="checkbox--nav" name="checkbox--nav" type="checkbox" hidden>
-		            <div class="nav__container">
-						<h1 class="center">LOGIN</h1>
-		            </div>
-	          	</nav>
-	        </div>
-      </header> -->
+		<div class="container">
 
-      <section id="sec__main" class="sec__main hero hero--main hero--big">
-        <div class="js-typed-en home__intro">
-          <h1>Login</h1>
-        </div>
-        <canvas id="particle-canvas" class="js-particles-trails canvas--absolute canvas--fullwidth"></canvas>
-      </section>
+		  	<form class="sign_in" action="/sign_in.jsp">
+		  		<br>
+		  		<div class="row">
+		  			<div class="col-sm-4"></div>
+		  			<div class="col-sm-4">
+					    <div class="input-group">
+					      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+					      <input id="email" type="text" class="form-control" name="email" placeholder="BITS ID">
+					    </div>
+					</div> 
+					<div class="col-sm-4"></div>
+				</div>
+
+				<br>
+
+				<div class="row">   
+					<div class="col-sm-4"></div>
+					<div class="col-sm-4">
+					    <div class="input-group">
+					      <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+					      <input id="password" type="password" class="form-control" name="password" placeholder="Password">
+					    </div>
+					</div>    
+					<div class="col-sm-4"></div>
+				    <!-- <div class="input-group">
+				      <span class="input-group-addon">Text</span>
+				      <input id="msg" type="text" class="form-control" name="msg" placeholder="Additional Info">
+				    </div> -->
+				</div>
+
+				<br><center><h5>New to BITS | Connect? <a href="">Click here</a> to sign up!</h5></center>
+
+				<br>
+
+				<div class="row">
+					<div class="col-sm-5"></div>
+					<div class="col-sm-2">
+						<button type="submit" class="btn btn-default btn-block">Submit</button>
+					</div>
+					<div class="col-sm-5"></div>
+				</div>
+
+  			</form>
 
 
-    </main>
+
+		</div>
+
+	</main>
+	<br><br><br><br><br><br>
+
+	<footer>
+		<center><font color="#d30320"><h4> &copy BITS Pilani - Hyderabad, 2018.</h4></font></center>
+	</footer>
 
 </body>
 </html>
