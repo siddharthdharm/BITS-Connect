@@ -25,7 +25,7 @@
     <noscript>
       <style>html{display:block;opacity:1}</style>
     </noscript>
-    <script src="js/plugins/modernizr-custom.min.js" async defer="defer"></script><script>!function(t,h,e,j,n,s){t.hj=t.hj||function(){(t.hj.q=t.hj.q||[]).push(arguments)},t._hjSettings={hjid:38630,hjsv:5},n=h.getElementsByTagName("head")[0],(s=h.createElement("script")).async=1,s.src="//static.hotjar.com/c/hotjar-"+t._hjSettings.hjid+".js?sv="+t._hjSettings.hjsv,n.appendChild(s)}(window,document)</script>
+    <!-- <script src="js/plugins/modernizr-custom.min.js" async defer="defer"></script><script>!function(t,h,e,j,n,s){t.hj=t.hj||function(){(t.hj.q=t.hj.q||[]).push(arguments)},t._hjSettings={hjid:38630,hjsv:5},n=h.getElementsByTagName("head")[0],(s=h.createElement("script")).async=1,s.src="//static.hotjar.com/c/hotjar-"+t._hjSettings.hjid+".js?sv="+t._hjSettings.hjsv,n.appendChild(s)}(window,document)</script> -->
   </head>
   <body class="page--contact">
     <main>
@@ -54,8 +54,9 @@
               <div class="col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
                 <h1 class="h1">Join <span class="text--red">our community</span>.</h1>
                 <p>Do you have any skills or talents to showcase? Want to build and strengthen your network of BITSians abroad? This is the <a class="red text--red" >right place</a> for you.</p>
-                <div class="contact-card contact-card--form">
-                  <form id="contactForm" action="register.jsp" method="post">
+                <!-- <div class="contact-card contact-card--form">
+
+                  <form id="contactForm" action="/register.jsp" method="post">
                     <fieldset class="form__details">
                       <div class="row">
                         <div class="col-md-6"><label for="name">Name</label><input name="name" id="name" type="text" required></div>
@@ -65,20 +66,115 @@
 
                     <fieldset class="form__details">
                         <div class="row">
-                            <div class="col-md-6"><label for="bitsid">BITSian ID</label><input name="bitsid" id="bitsid" type="text" required></div>
+                            <div class="col-md-6"><label for="bitsid">BITS ID</label><input name="bitsid" id="bitsid" type="text" required></div>
                             <div class="col-md-6"><label for="branch">Branch</label><input name="branch" id="branch" type="text" required></div>
                         </div>
                     </fieldset>
                     <fieldset><label for="checker"><input class="input--checkbox" id="checker" type="checkbox" name="checker" value="checker"> <span class="checkbox--custom"></span> <span class="checkbox__label">I am human</span></label></fieldset><br>
                     <fieldset class="form__button"><input id="formButton" type="submit" class="btn btn--ghost--black-inverted" value="Register"></fieldset>
                   </form>
-                </div>
-                <div class="contact-card contact-card--qr contact-card--hidden"><img src="./images/alex-devero-qr-code.svg" alt="QR code with contact information"></div>
+
+                </div> -->
+
+                <form action="register.jsp" method="POST">
+                  <div class="row">
+                    <!-- <div class="col-sm-4"></div> -->
+                      <!-- <div class="col-sm-12">
+                        <div class="input-group">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                          <input id="email" type="text" class="form-control" name="email" placeholder="Name">
+                        </div>
+                    </div> -->
+                  </div>
+                  
+
+                  <div class="row">
+                    <div class="col-sm-2"></div>
+                      <div class="col-sm-8">
+                        <div class="input-group">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                          <input id="name" type="text" class="form-control" name="name" placeholder="Name">
+                        </div>
+                      </div>
+                    <div class="col-sm-2"></div>  
+                  </div>
+                  <br>
+
+                  <div class="row">
+                    <div class="col-sm-2"></div>
+                      <div class="col-sm-8">
+                        <div class="input-group">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-credit-card"></i></span>
+                          <input id="email" type="text" class="form-control" name="email" placeholder="Email">
+                        </div>
+                      </div>
+                    <div class="col-sm-2"></div>
+                  </div>
+                  <br>
+
+                  <div class="row">
+                    <div class="col-sm-2"></div>
+                      <div class="col-sm-8">
+                        <div class="input-group">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                          <input id="bitsid" type="text" class="form-control" name="bitsid" placeholder="BITS ID">
+                        </div>
+                      </div>
+                    <div class="col-sm-2"></div>
+                  </div>
+                  <br>
+
+                  <div class="row">
+                    <div class="col-sm-2"></div>
+                      <div class="col-sm-8">
+                        <div class="input-group">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                          <input id="branch" type="text" class="form-control" name="branch" placeholder="Branch">
+                        </div>
+                      </div>
+                    <div class="col-sm-2"></div>
+                  </div>
+                  <br>
+
+                  <div class="row">
+                    <div class="col-sm-2"></div>
+                      <div class="col-sm-8">
+                        <div class="input-group">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                          <input id="password" type="password" class="form-control" name="password" placeholder="Password">
+                        </div>
+                      </div>
+                    <div class="col-sm-2"></div>
+                  </div>
+                  <br>
+
+                  <!-- <div class="row">
+                    <div class="col-sm-4"></div>
+                      <div class="col-sm-4">
+                        <div class="input-group">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                          <input id="password" type="password" class="form-control" name="password" placeholder="Confirm Password">
+                        </div>
+                      </div>
+                    <div class="col-sm-4"></div>
+                  </div>
+                  <br> -->
+
+                  <div class="row">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-7">
+                      <button type="submit" class="btn btn-default btn-block">Sign Up</button>
+                    </div>
+                    <div class="col-sm-1"></div>
+                  </div>
+                </form>
+
               </div>
             </div>
           </div>
         </div>
       </section>
+
       <footer>
         <div class="container">
           <div class="footer__media">
