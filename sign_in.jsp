@@ -16,20 +16,26 @@
         Class.forName("com.mysql.jdbc.Driver");
         conn = DriverManager.getConnection(DB_URL,USER,PASS);
         
-        String name = request.getParameter("name").trim();
-        String email = request.getParameter("email").trim();
         String bitsid = request.getParameter("bitsid").trim();
-        String branch = request.getParameter("branch").trim();
-        String pwd = request.getParameter("password").trim();
+        String password = request.getParameter("password").trim();
+        int count = 0;
 
-        String insert = "INSERT INTO `personal_details` VALUES ('"+name+"', '"+email+"', '"+bitsid+"', '"+branch+"', '"+pwd+"');";
+        String query = "SELECT * FROM `personal_details` WHERE bitsid = '"+bitsid+"' AND password = '"+password+"';";
         stmt = conn.createStatement();
-        stmt.executeUpdate(insert);
+        ResultSet rs = stmt.executeQuery(query);
+        while(rs.next()) {
+            count++;
+        }
         stmt.close();
-
-        String site = new String("/in/index.html");
-        response.setStatus(response.SC_MOVED_TEMPORARILY);
-        response.setHeader("Location", site);
+    
+        if(count > 0){
+            String site = new String("in/index.html");
+            response.setStatus(response.SC_MOVED_TEMPORARILY);
+            response.setHeader("Location", site);
+        }
+        
+        else
+            out.println("Your BITS ID or Password is INVALID!");
 
         conn.close();
     
