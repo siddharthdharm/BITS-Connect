@@ -87,13 +87,13 @@
                conn = DriverManager.getConnection(DB_URL,USER,PASS);
 
                newPath = filePath + bitsid + "." + ext;
-               String insert = "UPDATE `profile` SET dp = '"+filePath+"' WHERE bitsid = '"+bitsid+"';";
+               String insert = "UPDATE `profile` SET dp = '"+newPath+"' WHERE bitsid = '"+bitsid+"';";
 
                stmt = conn.createStatement();
                stmt.executeUpdate(insert);
                stmt.close();
 
-               String site = new String("/BITS_Connect/BITS-Connect/in/success.html");
+               String site = new String("/BITS_Connect/BITS-Connect/in/edit.html");
                response.setStatus(response.SC_MOVED_TEMPORARILY);
                response.setHeader("Location", site);
 
