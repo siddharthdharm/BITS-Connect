@@ -16,20 +16,42 @@
         Class.forName("com.mysql.jdbc.Driver");
         conn = DriverManager.getConnection(DB_URL,USER,PASS);
         
-        String name = request.getParameter("name").trim();
+        String fname = request.getParameter("fname").trim();
+        String lname = request.getParameter("lname").trim();
         String email = request.getParameter("email").trim();
         String bitsid = request.getParameter("bitsid").trim();
         String branch = request.getParameter("branch").trim();
         String pwd = request.getParameter("password").trim();
+        int count = 0;
+        String timeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime());
 
-        String insert = "INSERT INTO `personal_details` VALUES ('"+name+"', '"+email+"', '"+bitsid+"', '"+branch+"', '"+pwd+"');";
+        String check = "SELECT * FROM `personal_details` WHERE email = '"+email+"';";
         stmt = conn.createStatement();
-        stmt.executeUpdate(insert);
+        ResultSet rs = stmt.executeQuery(check);
+        while(rs.next()) {
+            count++;
+        }
         stmt.close();
 
-        String site = new String("/in/index.html");
-        response.setStatus(response.SC_MOVED_TEMPORARILY);
-        response.setHeader("Location", site);
+
+
+        if(count > 0)
+            out.println("<b>A user with the specified email already exists!!</b>");
+
+        else{
+
+            String insert = "INSERT INTO `personal_details` VALUES ('"+fname+"', '"+lname+"', '"+email+"', '"+bitsid+"', '"+branch+"', '"+pwd+"', '"+timeStamp+"');";
+            String insert1 = "INSERT INTO `profile` VALUES ('"+bitsid+"', '0', '0', '0', '0');";
+            stmt = conn.createStatement();
+            stmt.executeUpdate(insert);
+            stmt.executeUpdate(insert1);
+            stmt.close();
+
+            String site = new String("in/edit.html");
+            response.setStatus(response.SC_MOVED_TEMPORARILY);
+            response.setHeader("Location", site);
+
+        }
 
         conn.close();
     

@@ -18,6 +18,8 @@
         
         String bitsid = request.getParameter("bitsid").trim();
         String password = request.getParameter("password").trim();
+        
+
         int count = 0;
 
         String query = "SELECT * FROM `personal_details` WHERE bitsid = '"+bitsid+"' AND password = '"+password+"';";
@@ -27,15 +29,27 @@
             count++;
         }
         stmt.close();
-    
+
+        /*String update = "UPDATE `personal_details` SET online = '1' WHERE bitsid = '"+bitsid+"' AND password = '"+password+"';";
+        stmt = conn.createStatement();
+        stmt.executeUpdate(update);
+        stmt.close();*/
+
         if(count > 0){
-            String site = new String("in/index.html");
+            session.setAttribute("bitsid",bitsid);
+            String site = new String("in/profile.jsp");
             response.setStatus(response.SC_MOVED_TEMPORARILY);
             response.setHeader("Location", site);
         }
         
-        else
-            out.println("Your BITS ID or Password is INVALID!");
+        else {
+            
+            session.setAttribute("bitsid",bitsid);
+            String site = new String("invalid.html");
+            response.setStatus(response.SC_MOVED_TEMPORARILY);
+            response.setHeader("Location", site);
+
+        }
 
         conn.close();
     
@@ -57,7 +71,7 @@
         }
     
         try {
-            if(conn!=null)
+            if(conn != null)
                 conn.close();
             }
         catch(SQLException se2){

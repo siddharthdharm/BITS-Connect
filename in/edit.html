@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Franklin:300,400,700&amp;subset=latin-ext">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700&amp;subset=latin-ext">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<title>UPDATE PROFILE</title>
+	<noscript>
+    <style>html{display:block;opacity:1}</style>
+    </noscript>
+</head>
+<body>
+	<main>
+		<header>
+			<!-- <h1></h1>
+			<h1><font color="#d30320">BITS | Connect</font></h1> -->
+		</header>
+		<div class="jumbotron">
+			<center><h1><font color="#d30320">BITS | Connect</font></h1></center>
+		</div>
+
+		<center><h2>Tell us a bit about yourself.</h2></center>
+
+		<div class="container">
+
+			<form method="post" action="image-upload.jsp" enctype="multipart/form-data"> 
+				<br>
+				<div class="row">
+		  			<div class="col-sm-4"></div>
+		  			<div class="col-sm-2">
+						<font size="3"><b>Profile Picture!</b></font>
+					</div>
+					<div class="col-sm-2">
+					    <input type="file" name="dp"><br><br>				
+					</div>				
+					<div class="col-sm-4">
+					    <input type="submit" name="submit" value="Upload">
+					</div>									
+				</div>
+			</form>
+
+		  	<form action="/BITS_Connect/BITS-Connect/in/edit.jsp" method="POST">
+		  		<br>
+				<div class="row">
+		  			<div class="col-sm-4"></div>
+		  			<div class="col-sm-2">
+					    <font size="3"><b>Campus : </b></font>
+					</div>
+					<div class="col-sm-6">
+					    <select name="campus">
+						  	<option name="campus" value="pilani">Pilani</option>
+						  	<option name="campus" value="dubai">Dubai</option>
+						  	<option name="campus" value="goa">Goa</option>
+							<option name="campus" value="hyderabad">Hyderabad</option>
+						</select>
+					</div>				
+				</div>
+
+				<br>
+		  		<div class="row">
+		  			<div class="col-sm-4"></div>
+		  			<div class="col-sm-2">
+					    <font size="3"><b>Branch : </b></font>
+					</div> 
+					<div class="col-sm-6">
+					    <input type="textarea" name="branch">
+					</div> 
+				</div>
+
+				<br>
+				<div class="row">
+		  			<div class="col-sm-4"></div>
+		  			<div class="col-sm-2">
+					    <font size="3"><b>Graduation Year : </b></font>
+					</div>
+					<div class="col-sm-6">
+					    <input type="textarea" name="gradyear">
+					</div> 
+					<!-- <div class="col-sm-2"></div> -->
+				</div>
+
+				<br>
+				<div class="row">
+		  			<div class="col-sm-4"></div>
+		  			<div class="col-sm-2">
+					    <font size="3"><b>Current Location : </b></font>
+					</div>
+					<div class="col-sm-6">
+					    <input type="textarea" name="location">
+					</div> 
+					<!-- <div class="col-sm-2"></div> -->
+				</div>
+
+				<br>
+				<div class="row">
+		  			<div class="col-sm-4"></div>
+		  			<div class="col-sm-2">
+					    <font size="3"><b>Contact : </b></font>
+					</div>
+					<div class="col-sm-6">
+					    <input type="textarea" name="contact">
+					</div> 
+					<!-- <div class="col-sm-2"></div> -->
+				</div>
+
+				<br>
+				<div class="row">
+		  			<div class="col-sm-4"></div>
+		  			<div class="col-sm-2">
+					    <font size="3"><b>Bio : </b></font>
+					</div> 
+					<div class="col-sm-6">
+					    <input type="textarea" name="bio">
+					</div> 
+					<!-- <div class="col-sm-2"></div> -->
+				</div>
+
+				<br>
+				<div class="row">
+		  			<div class="col-sm-4"></div>
+		  			<div class="col-sm-2">
+					    <font size="3"><b>Past Projects : </b></font>
+					</div>
+					<div class="col-sm-6">
+					    <input type="textarea" name="pastprojects">
+					</div> 
+					<!-- <div class="col-sm-2"></div> -->
+				</div>
+
+				<br>
+				<div class="row">
+		  			<div class="col-sm-4"></div>
+		  			<div class="col-sm-2">
+					    <font size="3"><b>Ongoing Projects : </b></font>
+					</div>
+					<div class="col-sm-6">
+					    <input type="textarea" name="onprojects">
+					</div> 
+					<!-- <div class="col-sm-2"></div> -->
+				</div>
+
+				<br>
+				<div class="row">
+		  			<div class="col-sm-4"></div>
+		  			<div class="col-sm-2">
+					    <font size="3"><b>Internships : </b></font>
+					</div>
+					<div class="col-sm-6">
+					    <input type="textarea" name="internships">
+					</div> 
+					<!-- <div class="col-sm-2"></div> -->
+				</div>
+
+				<br>
+				<div class="row">
+		  			<div class="col-sm-4"></div>
+		  			<div class="col-sm-2">
+					    <font size="3"><b>Clubs/Departments : </b></font>
+					</div>
+					<div class="col-sm-6">
+					    <input type="textarea" name="clubs">
+					</div> 
+				</div>
+
+				<br>
+				<div class="row">   
+					<div class="col-sm-4"></div>
+					<div class="col-sm-2">
+					    <font size="3"><b>Interests : </b></font>
+					</div>
+					<div class="col-sm-6">
+					    <input type="textarea" name="interests">
+					</div>    
+				</div>
+
+				<br>
+				<div class="row">
+		  			<div class="col-sm-4"></div>
+		  			<div class="col-sm-2">
+					    <font size="3"><b>LinkedIn Profile : </b></font>
+					</div>
+					<div class="col-sm-6">
+					    <input type="textarea" name="linkedin">
+					</div> 
+				</div>
+
+				<br>
+
+				<div class="row">
+					<div class="col-sm-5"></div>
+					<div class="col-sm-2">
+						<button type="submit" class="btn btn-default btn-block">Submit</button>
+					</div>
+					<div class="col-sm-5"></div>
+				</div>
+
+  			</form>
+  			<br><center><h5>Already done? Go to <a href="/BITS_Connect/BITS-Connect/in/profile.jsp">profile</a> instead.</h5></center>
+		</div>
+
+	</main>
+	
+	<footer>
+		
+		<!-- <br><center><h5>New to BITS | Connect? <a href="/BITS_Connect/BITS-Connect/register.html">Click here</a> to sign up!</h5></center> -->
+		<center><font color="#d30320"><h4> &copy BITS Pilani - Hyderabad, 2018.</h4></font></center><br>
+	</footer>
+
+</body>
+</html>
