@@ -3,7 +3,6 @@
 <%@ page import = "org.apache.commons.fileupload.disk.*" %>
 <%@ page import = "org.apache.commons.fileupload.servlet.*" %>
 <%@ page import = "org.apache.commons.io.output.*" %>
-<%@ page import = "javax.imageio.*" %>
 
 <%
 
@@ -19,7 +18,9 @@
    int maxMemSize = 5000 * 1024;
    ServletContext context = pageContext.getServletContext();
    String filePath = context.getInitParameter("file-upload");
-   StringBuilder fpath;
+   String newPath;
+   String fileName = "";
+
 
    // Verify the content type
    String contentType = request.getContentType();
@@ -37,94 +38,91 @@
       
       // maximum file size to be uploaded.
       upload.setSizeMax( maxFileSize );
-      
-      try { 
-         // Parse the request to get file items.
-         List fileItems = upload.parseRequest(request);
 
-         // Process the uploaded file items
-         Iterator i = fileItems.iterator();
-
-         while (i.hasNext()) {
-            FileItem fi = (FileItem)i.next();
-            if (!fi.isFormField()) {
-               
-               String fieldName = fi.getFieldName();
-               String fileName = fi.getName();
-               boolean isInMemory = fi.isInMemory();
-               long sizeInBytes = fi.getSize();
-            
-               // Write the file
-
-               if(fileName.lastIndexOf("\\") >= 0)
-                  file = new File(filePath + fileName.substring(fileName.lastIndexOf("\\")));
-               else
-                  file = new File( filePath + fileName.substring(fileName.lastIndexOf("\\") + 1));
-
-               fi.write(file);
-            }
-         }
-
-         //Uploading to database
-         
-         try{
-
-         Class.forName("com.mysql.jdbc.Driver");
-         conn = DriverManager.getConnection(DB_URL,USER,PASS);
-
-         if (session.getAttribute("bitsid") == null || session.getAttribute("bitsid").equals("")){
+      if (session.getAttribute("bitsid") == null || session.getAttribute("bitsid").equals("")){
             String site = new String("/BITS_Connect/BITS-Connect/expired.html");
             response.setStatus(response.SC_MOVED_TEMPORARILY);
             response.setHeader("Location", site);
-         }
+      }
 
-         else {
+      else {
 
-            String bitsid = session.getAttribute("bitsid").toString();
+         String bitsid = session.getAttribute("bitsid").toString();
+         String ext = "";
+      
+         try { 
+            // Parse the request to get file items.
+            List fileItems = upload.parseRequest(request);
 
-            String insert = "UPDATE `profile` SET dp = '"+filePath+"' WHERE bitsid = '"+bitsid+"';";
+            // Process the uploaded file items
+            Iterator i = fileItems.iterator();
 
-            stmt = conn.createStatement();
-            stmt.executeUpdate(insert);
-            stmt.close();
+            while (i.hasNext()) {
+               FileItem fi = (FileItem)i.next();
+               if (!fi.isFormField()) {
+                  
+                  String fieldName = fi.getFieldName();
+                  fileName = fi.getName();
+                  boolean isInMemory = fi.isInMemory();
+                  long sizeInBytes = fi.getSize();
+               
+                  // Write the file
 
+                  if(fileName.lastIndexOf(".") != -1 && fileName.lastIndexOf(".") != 0)
+                     ext = fileName.substring(fileName.lastIndexOf(".")+1);
+                  else 
+                     ext = "";
+               
+                  file = new File(filePath + bitsid + "." + ext);
+                  
+                  fi.write(file);
+               }
+            }
 
-            /*String site = new String("/BITS_Connect/BITS-Connect/in/success.html");
-            response.setStatus(response.SC_MOVED_TEMPORARILY);
-            response.setHeader("Location", site);*/
-
-         }
-
-         conn.close();
-    
-         }catch(SQLException se){
-            se.printStackTrace();           //Handles errors for JDBC
-         }catch(Exception e){
-            e.printStackTrace();            //Handles errors for Class.forName
-         }
-
-         finally{                            //finally block used to close resources
+            // Uploading to database
+            
             try{
-               if(stmt != null)
-                  stmt.close();
-            }catch(SQLException se1){
-               se1.printStackTrace();
-            }
-    
-            try {
-               if(conn != null)
-                  conn.close();
-            }catch(SQLException se2){
-               se2.printStackTrace();
-            }
-         }
-         
-         /*String site = new String("edit.html");
-         response.setStatus(response.SC_MOVED_TEMPORARILY);
-         response.setHeader("Location", site);*/
 
-      } catch(Exception ex) {
-         System.out.println(ex);
+               Class.forName("com.mysql.jdbc.Driver");
+               conn = DriverManager.getConnection(DB_URL,USER,PASS);
+
+               newPath = filePath + bitsid + "." + ext;
+               String insert = "UPDATE `profile` SET dp = '"+filePath+"' WHERE bitsid = '"+bitsid+"';";
+
+               stmt = conn.createStatement();
+               stmt.executeUpdate(insert);
+               stmt.close();
+
+               String site = new String("/BITS_Connect/BITS-Connect/in/success.html");
+               response.setStatus(response.SC_MOVED_TEMPORARILY);
+               response.setHeader("Location", site);
+
+               conn.close();
+
+            }catch(SQLException se){
+               se.printStackTrace();           //Handles errors for JDBC
+            }catch(Exception e){
+               e.printStackTrace();            //Handles errors for Class.forName
+            }
+
+            finally{                           //finally block used to close resources
+               try{
+                  if(stmt != null)
+                     stmt.close();
+               }catch(SQLException se1){
+                  se1.printStackTrace();
+               }
+       
+               try{
+                  if(conn != null)
+                     conn.close();
+               }catch(SQLException se2){
+                  se2.printStackTrace();
+               }
+            }
+         }catch(Exception ex) {
+            System.out.println(ex);
+         }
       }
    } else {
       out.println("<html>");
