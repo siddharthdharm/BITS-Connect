@@ -68,6 +68,7 @@
     String location = "";
     String gradyear = "";
     String contact = "";
+    String path = "";
 
     try{
 
@@ -105,9 +106,11 @@
                 String gy = rs.getString("gradyear");
                 String lo = rs.getString("location");
                 String ct = rs.getString("contact");
+                String pt = rs.getString("dp");
                 /*String gy = rs.getString("gradyear");
                 String gy = rs.getString("gradyear");
                 String gy = rs.getString("gradyear");*/
+                path = pt;
                 location = lo;
                 contact = ct;
                 campus = cm;
@@ -115,8 +118,8 @@
             }
             stmt.close();
         }
-            
-
+        
+        path = path.substring(path.lastIndexOf("images"));
 
         conn.close();
     
@@ -169,7 +172,7 @@
 
                                     <div class="c-header__avatar">
                                         <div class="a-header  c-avatar">
-                                            <img class="c-avatar__img" src="assets/images/header/avatar.jpg" alt="">
+                                            <img class="c-avatar__img" src="<% out.println(path) ;%>" alt="">
                                         </div><!-- /c-avatar -->
                                     </div><!-- /c-header-avatar -->
 
