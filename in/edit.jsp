@@ -39,14 +39,20 @@
             String past_projects = request.getParameter("pastprojects").trim();
             String on_projects = request.getParameter("onprojects").trim();
             String internships = request.getParameter("internships").trim();
-            String clubs = request.getParameter("clubs").trim(); 
+            String clubs = request.getParameter("clubs").trim();
             String linkedin = request.getParameter("linkedin").trim();
 
+
             String insert = "UPDATE `profile` SET branch = '"+branch+"', bio = '"+bio+"', on_projects = '"+on_projects+"', past_projects = '"+past_projects+"', gradyear = '"+gradyear+"', location = '"+location+"', internships = '"+internships+"', clubs = '"+clubs+"', linkedin = '"+linkedin+"', contact = '"+contact+"', interests = '"+interests+"', campus = '"+campus+"' WHERE bitsid = '"+bitsid+"';";
+            out.println(insert);
+
+            //String insert1 = "UPDATE `personal_details` SET branch "
+
 
             stmt = conn.createStatement();
             stmt.executeUpdate(insert);
             stmt.close();
+            out.println(insert);
 
 
             String site = new String("/BITS_Connect/BITS-Connect/in/success.html");

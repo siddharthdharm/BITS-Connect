@@ -41,7 +41,7 @@
         else{
 
             String insert = "INSERT INTO `personal_details` VALUES ('"+fname+"', '"+lname+"', '"+email+"', '"+bitsid+"', '"+branch+"', '"+pwd+"', '"+timeStamp+"');";
-            String insert1 = "INSERT INTO `profile` VALUES ('"+bitsid+"', '0', '0', '0', '0');";
+            String insert1 = "INSERT INTO `profile` VALUES ('"+bitsid+"', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0');";
             stmt = conn.createStatement();
             stmt.executeUpdate(insert);
             stmt.executeUpdate(insert1);

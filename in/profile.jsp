@@ -68,6 +68,7 @@
     String location = "";
     String gradyear = "";
     String contact = "";
+    String path = "";
 
     try{
 
@@ -105,9 +106,11 @@
                 String gy = rs.getString("gradyear");
                 String lo = rs.getString("location");
                 String ct = rs.getString("contact");
+                String pt = rs.getString("dp");
                 /*String gy = rs.getString("gradyear");
                 String gy = rs.getString("gradyear");
                 String gy = rs.getString("gradyear");*/
+                path = pt;
                 location = lo;
                 contact = ct;
                 campus = cm;
@@ -115,8 +118,8 @@
             }
             stmt.close();
         }
-            
-
+        
+        path = path.substring(path.lastIndexOf("images"));
 
         conn.close();
     
@@ -156,8 +159,8 @@
             <!-- ################################ -->
 
             <!--Edited Code Starts-->
-                    <nav>
-          <input type="checkbox" id="nav" class="hidden"/>
+        <nav>
+          <!-- <input type="checkbox" id="nav" class="hidden"/>
           <label for="nav" class="nav-open"><i></i><i></i><i></i></label>
           <div class="nav-container">
             <ul>
@@ -166,7 +169,14 @@
               <li><a href="http://localhost/BITS-Connect-Master/login.html">LOGIN</a></li>
               <li><a href="http://localhost/BITS-Connect-Master/credits.html">CREDITS</a></li>
             </ul>
-          </div>
+          </div> -->
+
+        <ul class="topnav">
+              <li><a class="active" href="#home">Home</a></li>
+              <li><a href="edit.html">Edit Profile</a></li>
+              <li><a href="#contact">Search</a></li>
+              <li class="right"><a href="logout.jsp">Logout</a></li>
+        </ul>
         </nav>
         <!--Edited code ends-->
 
@@ -184,7 +194,7 @@
 
                                     <div class="c-header__avatar">
                                         <div class="a-header  c-avatar">
-                                            <img class="c-avatar__img" src="assets/images/header/avatar.jpg" alt="">
+                                            <img class="c-avatar__img" src="<% out.println(path) ;%>" alt="">
                                         </div><!-- /c-avatar -->
                                     </div><!-- /c-header-avatar -->
 
@@ -1390,7 +1400,7 @@
                                             <div class="o-content__body">
                                                 <h4>Location</h4>
                                                 <address>
-                                                    Portland, OR
+                                                    <% out.println(location); %>
                                                 </address>
                                             </div>
                                         </div><!-- /o-content -->
@@ -1401,23 +1411,8 @@
                                             <div class="o-content__body">
                                                 <h4>Phone</h4>
                                                 <p>
-                                                    534.456.886
+                                                    <% out.println(contact); %>
                                                 </p>
-                                            </div>
-                                        </div><!-- /o-content -->
-                                    </div><!-- /o-grid__col -->
-
-                                    <div class="o-grid__col-md-3  o-grid__col-sm-6">
-                                        <div class="o-content">
-                                            <div class="o-content__body">
-                                                <a href="#" target="_blank" class="t-link-container">
-                                                    <h4>Web</h4>
-                                                    <p>
-                                                        <span class="t-link-container__item--blended">
-                                                            ruventhemes.com
-                                                        </span>
-                                                    </p>
-                                                </a><!-- /o-link-container -->
                                             </div>
                                         </div><!-- /o-content -->
                                     </div><!-- /o-grid__col -->
@@ -1429,7 +1424,7 @@
                                                     <h4>Email</h4>
                                                     <p>
                                                         <span class="t-link-container__item--blended">
-                                                            hello@example.com
+                                                            <% out.println(email); %>
                                                         </span>
                                                     </p>
                                                 </a><!-- /o-link-container -->
@@ -1463,7 +1458,7 @@
 
                                         </div><!-- /c-footer__brand -->
 
-                                        <ul class="c-footer__social-buttons  c-social-buttons  o-content__body">
+                                        <!-- <ul class="c-footer__social-buttons  c-social-buttons  o-content__body">
                                             <li class="a-footer">
                                                 <a href="https://www.facebook.com/RuvenThemes/" target="_blank" class="c-social-button  t-social-button">
                                                     <i class="fa  fa-lg  fa-facebook"></i>
@@ -1479,7 +1474,7 @@
                                                     <i class="fa  fa-lg  fa-twitter"></i>
                                                 </a>
                                             </li>
-                                        </ul><!-- /c-footer__social-buttons -->
+                                        </ul> --><!-- /c-footer__social-buttons -->
 
                                     </div><!-- /c-footer__bottom -->
                                 </div><!-- /o-content -->
