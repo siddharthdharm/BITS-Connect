@@ -23,7 +23,7 @@
         <link rel="stylesheet" href="css/default.css" />
 
         <!-- Main CSS -->
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/semi_main.css">
         
         <!-- Themes -->
         <!--<link rel="stylesheet" href="assets/css/themes.light.css">-->
@@ -157,7 +157,7 @@
         <!--Edited Code Starts-->
         <nav>
             <ul class="topnav">
-                <li><a class="active" href="#">BITS | Connect</a></li>
+                <li><a class="active" href="profile.jsp">BITS | Connect</a></li>
                 <!-- <li><a href="#contact">Search</a></li> -->
                 <div class="search-container">
                     <form action="search.jsp">
@@ -395,7 +395,7 @@
                                         <div class="o-content">
                                             <div class="o-content__body">                                                
                                                 <%
-                                                    out.println("<button onclick=\"window.location.href='connect.jsp?connectee=" + newid + "'\">Continue</button>");
+                                                    out.println("<button onclick=\"window.location.href='connect.jsp?connectee=" + newid + "'\">Connect</button>");
                                                 %>
                                             </div>
                                         </div><!-- /o-content -->

@@ -42,6 +42,7 @@
 	    String fname[] = new String[1000];
 	    String lname[] = new String[1000];
 	    int k = 0;
+	    String bitsid = "";
 
 	    try{
 
@@ -55,7 +56,7 @@
 	        }
 	        else {
 
-	            String bitsid = session.getAttribute("bitsid").toString();
+	            bitsid = session.getAttribute("bitsid").toString();
 	            search = request.getParameter("search");
 
 	            k = 0;
@@ -77,7 +78,15 @@
 	        // Printing links
 
 	        for(int i = 1; i <= k; i++) {
-	        	out.println(i + ". <a href=\"semi_profile.jsp?newid=" + newid[k-1] + "\">" + fname[k-1] + " " + lname[k-1] + "</a>");
+	        	String query = "SELECT * FROM `connections` WHERE (first = '" + bitsid + "' AND second = '" + newid[k-1] + "') OR (first = '" + newid[k-1] + "' AND second = '" + bitsid + "');";
+	            stmt = conn.createStatement();
+	            ResultSet rs = stmt.executeQuery(query);
+	            while(rs.next() == false) {
+	            	out.println(i + ". <a href=\"semi_profile.jsp?newid=" + newid[k-1] + "\">" + fname[k-1] + " " + lname[k-1] + "</a>");
+	            	break;
+	            }
+	            stmt.close();
+	        	out.println(i + ". <a href=\"profile.jsp?newid=" + newid[k-1] + "\">" + fname[k-1] + " " + lname[k-1] + "</a>");
 	    	}
 
 

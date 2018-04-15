@@ -87,42 +87,85 @@
         else {
 
             String bitsid = session.getAttribute("bitsid").toString();
-            String query = "(SELECT * FROM `personal_details` WHERE bitsid = '"+bitsid+"');";
-            stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery(query);
-            while(rs.next()) {
-                String fn = rs.getString("first_name");
-                String ln = rs.getString("last_name");
-                String em = rs.getString("email");
-                String br = rs.getString("branch");
-                fname = fn;
-                lname = ln;
-                email = em;
-                branch = br;
-            }
-            stmt.close();
+            String newid = request.getParameter("newid");
 
-            query = "(SELECT * FROM `profile` WHERE bitsid = '"+bitsid+"');";
-            stmt = conn.createStatement();
-            rs = stmt.executeQuery(query);
-            while(rs.next()) {
-                String cm = rs.getString("campus");
-                String gy = rs.getString("gradyear");
-                String lo = rs.getString("location");
-                String ct = rs.getString("contact");
-                String pt = rs.getString("dp");
-                String bi = rs.getString("bio");
-                String in = rs.getString("interests");
-                /*String gy = rs.getString("gradyear");*/
-                path = pt;
-                location = lo;
-                contact = ct;
-                campus = cm;
-                gradyear = gy;
-                bio = bi;
-                interests = in;
+            if(newid == null) {
+                String query = "(SELECT * FROM `personal_details` WHERE bitsid = '"+bitsid+"');";
+                stmt = conn.createStatement();
+                ResultSet rs = stmt.executeQuery(query);
+                while(rs.next()) {
+                    String fn = rs.getString("first_name");
+                    String ln = rs.getString("last_name");
+                    String em = rs.getString("email");
+                    String br = rs.getString("branch");
+                    fname = fn;
+                    lname = ln;
+                    email = em;
+                    branch = br;
+                }
+                stmt.close();
+
+                query = "(SELECT * FROM `profile` WHERE bitsid = '"+bitsid+"');";
+                stmt = conn.createStatement();
+                rs = stmt.executeQuery(query);
+                while(rs.next()) {
+                    String cm = rs.getString("campus");
+                    String gy = rs.getString("gradyear");
+                    String lo = rs.getString("location");
+                    String ct = rs.getString("contact");
+                    String pt = rs.getString("dp");
+                    String bi = rs.getString("bio");
+                    String in = rs.getString("interests");
+                    /*String gy = rs.getString("gradyear");*/
+                    path = pt;
+                    location = lo;
+                    contact = ct;
+                    campus = cm;
+                    gradyear = gy;
+                    bio = bi;
+                    interests = in;
+                }
+                stmt.close();
             }
-            stmt.close();
+            else {
+                String query = "(SELECT * FROM `personal_details` WHERE bitsid = '"+newid+"');";
+                stmt = conn.createStatement();
+                ResultSet rs = stmt.executeQuery(query);
+                while(rs.next()) {
+                    String fn = rs.getString("first_name");
+                    String ln = rs.getString("last_name");
+                    String em = rs.getString("email");
+                    String br = rs.getString("branch");
+                    fname = fn;
+                    lname = ln;
+                    email = em;
+                    branch = br;
+                }
+                stmt.close();
+
+                query = "(SELECT * FROM `profile` WHERE bitsid = '"+newid+"');";
+                stmt = conn.createStatement();
+                rs = stmt.executeQuery(query);
+                while(rs.next()) {
+                    String cm = rs.getString("campus");
+                    String gy = rs.getString("gradyear");
+                    String lo = rs.getString("location");
+                    String ct = rs.getString("contact");
+                    String pt = rs.getString("dp");
+                    String bi = rs.getString("bio");
+                    String in = rs.getString("interests");
+                    /*String gy = rs.getString("gradyear");*/
+                    path = pt;
+                    location = lo;
+                    contact = ct;
+                    campus = cm;
+                    gradyear = gy;
+                    bio = bi;
+                    interests = in;
+                }
+                stmt.close();
+            }
+                
         }
         
         path = path.substring(path.lastIndexOf("images"));
@@ -167,7 +210,7 @@
         <!--Edited Code Starts-->
         <nav>
             <ul class="topnav">
-                <li><a class="active" href="#">BITS | Connect</a></li>
+                <li><a class="active" href="profile.jsp">BITS | Connect</a></li>
                 <!-- <li><a href="#contact">Search</a></li> -->
                 <div class="search-container">
                     <form action="search.jsp">

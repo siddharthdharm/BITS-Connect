@@ -28,9 +28,7 @@
         else {
 
             String bitsid = session.getAttribute("bitsid").toString();
-
             String connectee = request.getParameter("connectee").trim();
-
 
             String connect = "INSERT INTO `connections` VALUES ('"+bitsid+"', '"+connectee+"');";
             out.println(connect);
@@ -40,9 +38,9 @@
             stmt.close();
 
 
-            /*String site = new String("/BITS_Connect/BITS-Connect/in/success.html");
+            String site = new String("/BITS_Connect/BITS-Connect/in/request_sent.html");
             response.setStatus(response.SC_MOVED_TEMPORARILY);
-            response.setHeader("Location", site);*/
+            response.setHeader("Location", site);
 
         }
 

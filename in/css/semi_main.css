@@ -709,6 +709,8 @@ img[height] {
 .o-content__body,
 .o-content__body :last-child {
   margin-bottom: 0;
+  color: rgb(224,168,14);
+  font-size: 25px;
 }
 
 @media (min-width: 760px) {
