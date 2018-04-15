@@ -220,14 +220,14 @@
                                                         </span>
                                                     </span>
                                                 </h1>
-                                                <h2 class="a-header  c-brand__sub-title  t-sub-title">
-                                                    <!-- <span class="c-brand__sizer">
+                                                <!-- <h2 class="a-header  c-brand__sub-title  t-sub-title">
+                                                    <span class="c-brand__sizer">
                                                         Web Developer &amp; Front-end Expert
-                                                    </span> -->
-                                                </h2>
-                                            </div><!-- /c-brand -->
+                                                    </span>
+                                                </h2> -->
+                                            </div>
 
-                                        </div><!-- /c-header__brand -->
+                                        </div>
 
                                         <!-- <ul class="c-header__social-buttons  c-social-buttons">
                                             <li class="a-header">
