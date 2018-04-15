@@ -10,6 +10,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
         <!-- Google Font: Lato -->
         <link href='https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 
@@ -69,6 +71,8 @@
     String gradyear = "";
     String contact = "";
     String path = "";
+    String bio = "";
+    String interests = "";
 
     try{
 
@@ -107,14 +111,16 @@
                 String lo = rs.getString("location");
                 String ct = rs.getString("contact");
                 String pt = rs.getString("dp");
-                /*String gy = rs.getString("gradyear");
-                String gy = rs.getString("gradyear");
-                String gy = rs.getString("gradyear");*/
+                String bi = rs.getString("bio");
+                String in = rs.getString("interests");
+                /*String gy = rs.getString("gradyear");*/
                 path = pt;
                 location = lo;
                 contact = ct;
                 campus = cm;
                 gradyear = gy;
+                bio = bi;
+                interests = in;
             }
             stmt.close();
         }
@@ -158,25 +164,20 @@
             <!-- ############ HEADER ############ -->
             <!-- ################################ -->
 
-            <!--Edited Code Starts-->
+        <!--Edited Code Starts-->
         <nav>
-          <!-- <input type="checkbox" id="nav" class="hidden"/>
-          <label for="nav" class="nav-open"><i></i><i></i><i></i></label>
-          <div class="nav-container">
-            <ul>
-              <li><a href="http://localhost/BITS-Connect-Master/index.html">HOME</a></li>
-              <li><a href="http://localhost/BITS-Connect-Master/sign_up.html">SIGN UP</a></li>
-              <li><a href="http://localhost/BITS-Connect-Master/login.html">LOGIN</a></li>
-              <li><a href="http://localhost/BITS-Connect-Master/credits.html">CREDITS</a></li>
+            <ul class="topnav">
+                <li><a class="active" href="#">BITS | Connect</a></li>
+                <!-- <li><a href="#contact">Search</a></li> -->
+                <div class="search-container">
+                    <form action="search.jsp">
+                        <input type="text" placeholder="Search.." name="search">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                    </form>
+                </div>
+                <li class="right"><a href="logout.jsp">Logout</a></li>
+                <li class="right"><a href="edit.html">Edit Profile</a></li>                
             </ul>
-          </div> -->
-
-        <ul class="topnav">
-              <li><a class="active" href="#home">Home</a></li>
-              <li><a href="edit.html">Edit Profile</a></li>
-              <li><a href="#contact">Search</a></li>
-              <li class="right"><a href="logout.jsp">Logout</a></li>
-        </ul>
         </nav>
         <!--Edited code ends-->
 
@@ -194,7 +195,7 @@
 
                                     <div class="c-header__avatar">
                                         <div class="a-header  c-avatar">
-                                            <img class="c-avatar__img" src="<% out.println(path) ;%>" alt="">
+                                            <img class="c-avatar__img" src="<% out.println(path); %>" alt="">
                                         </div><!-- /c-avatar -->
                                     </div><!-- /c-header-avatar -->
 
@@ -344,15 +345,14 @@
                             </div>
                         </header><!-- /o-section__header -->
 
-                        <div class="o-section__content  t-section__content  ">
-                            <%
-
-                            %>
+                        <div class="o-section__content  t-section__content  ">                        
                             <div class="o-content">
                                 <div class="c-intro">
                                     <div class="o-content__body">
                                         <div class="o-media__figure">
-                                            
+                                            <div class="c-number  t-primary-color">
+                                                <% out.println(bio); %>
+                                            </div><br>
                                             <div class="c-number  t-primary-color">
                                                 Campus : <% out.println(campus); %>
                                             </div><br>
@@ -377,7 +377,7 @@
 
 
             <!-- ################################ -->
-            <!-- ########## EXPERTISE ########### -->
+            <!-- ########## INTERESTS ########### -->
             <!-- ################################ -->
             
             <section class="o-section  t-section  ">
@@ -391,11 +391,11 @@
                         <header class="o-section__header  t-section__header">
                             <div class="o-content">
                                 <h2 class="o-section__heading">
-                                    Expertise
+                                    Interests
                                 </h2>
-                                <div class="o-content__body  o-section__description">
+                                <!-- <div class="o-content__body  o-section__description">
                                     Batman would be jealous.
-                                </div>
+                                </div> -->
                             </div>
                         </header><!-- /o-section__header -->
 
@@ -403,86 +403,25 @@
                             
                             <div class="o-grid">
 
-                                <div class="o-grid__col-sm-6">
+                                <% out.println(interests); %>
+
+                                <!-- <div class="o-grid__col-sm-6">
                                     <div class="o-media  o-media--block  o-content">
-                                        <div class="o-media__figure">
-                                            <div class="c-number  t-primary-color">
-                                                01
-                                            </div>
-                                        </div>
                                         <div class="o-media__body  o-content__body">
                                             <h3>Advanced CSS</h3>
-                                            <!-- <p>
-                                                Cras ornare tristique elit lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id.
-                                            </p> -->
                                         </div>
-                                    </div><!-- /o-media o-content -->
-                                </div><!-- /o-grid__col -->
+                                    </div>
+                                </div>
+
+                                
 
                                 <div class="o-grid__col-sm-6">
                                     <div class="o-media  o-media--block  o-content">
-                                        <div class="o-media__figure">
-                                            <div class="c-number  t-primary-color">
-                                                02
-                                            </div>
-                                        </div>
                                         <div class="o-media__body  o-content__body">
-                                            <h3>Front-end Design</h3>
+                                            <font ><h3>Object-oriented PHP</h3></font>
                                         </div>
-                                    </div><!-- /o-media o-content -->
-                                </div><!-- /o-grid__col -->
-
-                                <div class="o-grid__col-sm-6">
-                                    <div class="o-media  o-media--block  o-content">
-                                        <div class="o-media__figure">
-                                            <div class="c-number  t-primary-color">
-                                                03
-                                            </div>
-                                        </div>
-                                        <div class="o-media__body  o-content__body">
-                                            <h3>Ruby on Rails</h3>
-                                        </div>
-                                    </div><!-- /o-media o-content -->
-                                </div><!-- /o-grid__col -->
-
-                                <div class="o-grid__col-sm-6">
-                                    <div class="o-media  o-media--block  o-content">
-                                        <div class="o-media__figure">
-                                            <div class="c-number  t-primary-color">
-                                                04
-                                            </div>
-                                        </div>
-                                        <div class="o-media__body  o-content__body">
-                                            <h3>Object-oriented PHP</h3>
-                                        </div>
-                                    </div><!-- /o-media o-content -->
-                                </div><!-- /o-grid__col -->
-
-                                <div class="o-grid__col-sm-6">
-                                    <div class="o-media  o-media--block  o-content">
-                                        <div class="o-media__figure">
-                                            <div class="c-number  t-primary-color">
-                                                05
-                                            </div>
-                                        </div>
-                                        <div class="o-media__body  o-content__body">
-                                            <h3>WordPress</h3>
-                                        </div>
-                                    </div><!-- /o-media o-content -->
-                                </div><!-- /o-grid__col -->
-
-                                <div class="o-grid__col-sm-6">
-                                    <div class="o-media  o-media--block  o-content">
-                                        <div class="o-media__figure">
-                                            <div class="c-number  t-primary-color">
-                                                06
-                                            </div>
-                                        </div>
-                                        <div class="o-media__body  o-content__body">
-                                            <h3>JavaScript / jQuery</h3>
-                                        </div>
-                                    </div><!-- /o-media o-content -->
-                                </div><!-- /o-grid__col -->
+                                    </div>
+                                </div> -->
 
                             </div><!-- /o-grid -->
 

@@ -52,7 +52,6 @@
             stmt = conn.createStatement();
             stmt.executeUpdate(insert);
             stmt.close();
-            out.println(insert);
 
 
             String site = new String("/BITS_Connect/BITS-Connect/in/success.html");
