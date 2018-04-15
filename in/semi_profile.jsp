@@ -71,6 +71,7 @@
     String path = "";
     String bio = "";
     String interests = "";
+    String newid = "";
 
     try{
 
@@ -84,8 +85,8 @@
         }
         else {
 
-            String bitsid = session.getAttribute("bitsid").toString();
-            String query = "(SELECT * FROM `personal_details` WHERE bitsid = '"+bitsid+"');";
+            newid = request.getParameter("newid");
+            String query = "(SELECT * FROM `personal_details` WHERE bitsid = '"+newid+"');";
             stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(query);
             while(rs.next()) {
@@ -98,7 +99,7 @@
             }
             stmt.close();
 
-            query = "(SELECT * FROM `profile` WHERE bitsid = '"+bitsid+"');";
+            query = "SELECT * FROM `profile` WHERE bitsid = '"+newid+"';";
             stmt = conn.createStatement();
             rs = stmt.executeQuery(query);
             while(rs.next()) {
@@ -107,7 +108,7 @@
                 String pt = rs.getString("dp");
                 String bi = rs.getString("bio");
                 String in = rs.getString("interests");
-                String sk = rs.getString("skills");
+                //String sk = rs.getString("skills");            
                 path = pt;
                 campus = cm;
                 bio = bi;
@@ -392,8 +393,10 @@
 
                                     <div class="o-grid__col-md-3  o-grid__col-sm-6">
                                         <div class="o-content">
-                                            <div class="o-content__body">
-                                                <button><center>Connect</center></button>
+                                            <div class="o-content__body">                                                
+                                                <%
+                                                    out.println("<button onclick=\"window.location.href='connect.jsp?connectee=" + newid + "'\">Continue</button>");
+                                                %>
                                             </div>
                                         </div><!-- /o-content -->
                                     </div><!-- /o-grid__col -->
