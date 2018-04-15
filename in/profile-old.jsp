@@ -68,6 +68,7 @@
     String location = "";
     String gradyear = "";
     String contact = "";
+    String path = "";
 
     try{
 
@@ -105,9 +106,11 @@
                 String gy = rs.getString("gradyear");
                 String lo = rs.getString("location");
                 String ct = rs.getString("contact");
+                String pt = rs.getString("dp");
                 /*String gy = rs.getString("gradyear");
                 String gy = rs.getString("gradyear");
                 String gy = rs.getString("gradyear");*/
+                path = pt;
                 location = lo;
                 contact = ct;
                 campus = cm;
@@ -115,8 +118,8 @@
             }
             stmt.close();
         }
-            
-
+        
+        path = path.substring(path.lastIndexOf("images"));
 
         conn.close();
     
@@ -154,22 +157,7 @@
             <!-- ################################ -->
             <!-- ############ HEADER ############ -->
             <!-- ################################ -->
-
-            <!--Edited Code Starts-->
-                    <nav>
-          <input type="checkbox" id="nav" class="hidden"/>
-          <label for="nav" class="nav-open"><i></i><i></i><i></i></label>
-          <div class="nav-container">
-            <ul>
-              <li><a href="http://localhost/BITS-Connect-Master/index.html">HOME</a></li>
-              <li><a href="http://localhost/BITS-Connect-Master/sign_up.html">SIGN UP</a></li>
-              <li><a href="http://localhost/BITS-Connect-Master/login.html">LOGIN</a></li>
-              <li><a href="http://localhost/BITS-Connect-Master/credits.html">CREDITS</a></li>
-            </ul>
-          </div>
-        </nav>
-        <!--Edited code ends-->
-
+            
             <section class="o-section o-section--header  t-section  t-section--header">
                 <div class="c-header">
 
@@ -184,7 +172,7 @@
 
                                     <div class="c-header__avatar">
                                         <div class="a-header  c-avatar">
-                                            <img class="c-avatar__img" src="assets/images/header/avatar.jpg" alt="">
+                                            <img class="c-avatar__img" src="<% out.println(path) ;%>" alt="">
                                         </div><!-- /c-avatar -->
                                     </div><!-- /c-header-avatar -->
 
@@ -234,7 +222,7 @@
                                                     <i class="fa  fa-lg  fa-twitter"></i>
                                                 </a>
                                             </li>
-                                        </ul> --><!-- /c-header__social-buttons -->
+                                        </ul><!-- /c-header__social-buttons --> -->
 
                                     </div><!-- /c-header__top -->
 
