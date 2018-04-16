@@ -81,12 +81,15 @@
 	        	String query = "SELECT * FROM `connections` WHERE (first = '" + bitsid + "' AND second = '" + newid[k-1] + "') OR (first = '" + newid[k-1] + "' AND second = '" + bitsid + "');";
 	            stmt = conn.createStatement();
 	            ResultSet rs = stmt.executeQuery(query);
-	            while(rs.next() == false) {
-	            	out.println(i + ". <a href=\"semi_profile.jsp?newid=" + newid[k-1] + "\">" + fname[k-1] + " " + lname[k-1] + "</a>");
-	            	break;
-	            }
+
+	            if(rs.next()) {
+	            	out.println(i + ". <a href=\"profile.jsp?newid=" + newid[k-1] + "\">" + fname[k-1] + " " + lname[k-1] + "</a>");
+	        	}
+	        	else {
+	        		out.println(i + ". <a href=\"semi_profile.jsp?newid=" + newid[k-1] + "\">" + fname[k-1] + " " + lname[k-1] + "</a>");
+	        	}
+	        	
 	            stmt.close();
-	        	out.println(i + ". <a href=\"profile.jsp?newid=" + newid[k-1] + "\">" + fname[k-1] + " " + lname[k-1] + "</a>");
 	    	}
 
 

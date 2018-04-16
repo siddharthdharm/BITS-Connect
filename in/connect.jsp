@@ -30,12 +30,13 @@
             String bitsid = session.getAttribute("bitsid").toString();
             String connectee = request.getParameter("connectee").trim();
 
-            String connect = "INSERT INTO `connections` VALUES ('"+bitsid+"', '"+connectee+"');";
-            out.println(connect);
-
+            String request_connect = "INSERT INTO `connections` VALUES ('"+bitsid+"', '"+connectee+"', '10');";
             stmt = conn.createStatement();
-            stmt.executeUpdate(connect);
+            stmt.executeUpdate(request_connect);
             stmt.close();
+
+            
+
 
 
             String site = new String("/BITS_Connect/BITS-Connect/in/request_sent.html");

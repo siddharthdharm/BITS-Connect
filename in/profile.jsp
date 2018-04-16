@@ -219,7 +219,8 @@
                     </form>
                 </div>
                 <li class="right"><a href="logout.jsp">Logout</a></li>
-                <li class="right"><a href="edit.html">Edit Profile</a></li>                
+                <li class="right"><a href="edit.html">Edit Profile</a></li>
+                <li class="right"><a href="notifications.jsp">Notifications</a></li>
             </ul>
         </nav>
         <!--Edited code ends-->
