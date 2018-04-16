@@ -1464,6 +1464,9 @@
 
             </section><!-- /o-section -->
 
+            <footer>
+                <center><h4> &copy BITS Pilani - Hyderabad, 2018.</h4></center><br>
+            </footer>
 
 
         </div><!-- /c-main-container -->

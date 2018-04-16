@@ -146,7 +146,7 @@
                     </form>
                 </div>
                 <li class="right"><a href="logout.jsp">Logout</a></li>
-                <li class="right"><a href="notifications.jsp">Notifications</a></li>      
+                <li class="right"><a href="notifications.jsp">Notifications</a></li> 
             </ul>
         </nav>
         <!--Edited code ends-->
@@ -159,6 +159,10 @@
 
 
         </div><!-- /c-main-container -->
+        <br><br><br><br><br><br><br><br><br><br>
+        <footer>
+            <center><h4> &copy BITS Pilani - Hyderabad, 2018.</h4></center><br>
+        </footer>
         
     </body>
 

@@ -47,7 +47,7 @@
             stmt.executeUpdate(insert1);
             stmt.close();
 
-            String site = new String("in/edit.html");
+            String site = new String("in/initialize.html");
             response.setStatus(response.SC_MOVED_TEMPORARILY);
             response.setHeader("Location", site);
 

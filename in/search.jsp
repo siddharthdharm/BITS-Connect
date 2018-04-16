@@ -88,7 +88,7 @@
 	        	else {
 	        		out.println(i + ". <a href=\"semi_profile.jsp?newid=" + newid[k-1] + "\">" + fname[k-1] + " " + lname[k-1] + "</a>");
 	        	}
-	        	
+
 	            stmt.close();
 	    	}
 
@@ -119,6 +119,10 @@
 			</font>
 		</h2>
 	</center>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<footer>
+        <center><h4> &copy BITS Pilani - Hyderabad, 2018.</h4></center><br>
+    </footer>
 
 </body>
 </html>

@@ -174,6 +174,10 @@
         }
     }
  %>     
+ 	<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+ 	<footer>
+		<center><h4> &copy BITS Pilani - Hyderabad, 2018.</h4></center><br>
+	</footer>
     </body>
 
 </html>
