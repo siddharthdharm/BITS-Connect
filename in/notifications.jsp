@@ -1,28 +1,82 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!doctype html>
 
-  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Franklin:300,400,700&amp;subset=latin-ext">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700&amp;subset=latin-ext">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<html lang="en">
 
-	<title>Notifications</title>
-	<noscript>
-    <style>html{display:block;opacity:1}</style>
-    </noscript>
-</head>
+    <head>
+
+        <title>Profile</title>
+        <meta name="description" content="">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <!-- Google Font: Lato -->
+        <link href='https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+        <!-- FontAwesome -->
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+
+        <!-- Nivo Lightbox-->
+        <link rel="stylesheet" href="css/nivo-lightbox.css" />
+        <link rel="stylesheet" href="css/default.css" />
+
+        <!-- Main CSS -->
+        <link rel="stylesheet" href="css/semi_main.css">
+        
+        <!-- Themes -->
+        <!--<link rel="stylesheet" href="assets/css/themes.light.css">-->
+        <link rel="stylesheet" href="css/themes.dark.css">
+        
+        <!-- Custom CSS -->
+        <!--<link rel="stylesheet" href="assets/css/custom.css">-->
+
+        <!-- jQuery -->
+        <script src="js/jquery.min.js"></script>
+
+        <!-- dense.js (Retina plugin) -->
+        <script src="js/dense.js"></script>
+
+        <!-- Nivo Lightbox -->
+        <script src="js/nivo-lightbox.min.js"></script>
+
+        <!-- ScrollReveal -->
+        <script src="js/scrollreveal.min.js"></script>
+
+        <!-- Main JS -->
+        <script src="js/main.js"></script>
+
+    </head>
 <body>
-	<main>
-		<div class="jumbotron">
-			<center><h1><font color="#d30320">BITS | Connect</font></h1></center>
-		</div>
 
+	<div class="c-preloader  js-preloader">
+            <div class="c-preloader__spinner  t-preloader__spinner"></div>
+        </div>
+
+        <div class="c-main-container  js-main-container">
+
+            <!-- ################################ -->
+            <!-- ############ HEADER ############ -->
+            <!-- ################################ -->
+
+        <!--Edited Code Starts-->
+        <nav>
+            <ul class="topnav">
+                <li><a class="active" href="profile.jsp">BITS | Connect</a></li>
+                <!-- <li><a href="#contact">Search</a></li> -->
+                <div class="search-container">
+                    <form action="search.jsp">
+                        <input type="text" placeholder="Search.." name="search">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                    </form>
+                </div>
+                <li class="right"><a href="logout.jsp">Logout</a></li>
+                <li class="right"><a href="edit.html">Edit Profile</a></li>      
+            </ul>
+        </nav>
+        <!--Edited code ends-->
+        </div><!-- /c-main-container -->
 
 <%@page import="java.io.*, java.util.*, javax.servlet.*, java.text.*, java.sql.*, javax.servlet.http.*, org.apache.commons.io.output.*" %>
 
@@ -66,6 +120,10 @@
 	            ids[k++] = id;
 	        }
 	        stmt.close();
+
+	        if(k == 0) {
+	        	out.println("<br><br><br><br><center><h1>No new notifications.</h1></<enter>");
+		    }
 
 	        for(int i = 0; i < k; i++) {
 		        query = "SELECT * FROM `personal_details` WHERE bitsid = '" + ids[i] + "';";
@@ -115,25 +173,7 @@
             se2.printStackTrace();
         }
     }
+ %>     
+    </body>
 
- %>
-
-		<div class="container">
-			<br><br><br><br>
-			<center>
-				<h3>
-					
-				</h3>
-					
-			</center>
-		</div>
-
-	</main>
-	<br><br><br><br><br><br><br><br><br><br><br>
-
-	<footer>
-		<center><font color="#d30320"><h4> &copy BITS Pilani - Hyderabad, 2018.</h4></font></center>
-	</footer>
-
-</body>
 </html>
