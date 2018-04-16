@@ -17,7 +17,7 @@
         Class.forName("com.mysql.jdbc.Driver");
         conn = DriverManager.getConnection(DB_URL,USER,PASS);
         
-        int count = 0;
+        int flag = 0;
 
         if (session.getAttribute("bitsid") == null || session.getAttribute("bitsid").equals("")){
             String site = new String("/BITS_Connect/BITS-Connect/expired.html");
@@ -30,14 +30,32 @@
             String bitsid = session.getAttribute("bitsid").toString();
             String connectee = request.getParameter("connectee").trim();
 
-            String request_connect = "INSERT INTO `connections` VALUES ('"+bitsid+"', '"+connectee+"', '10');";
+            String check = "SELECT * FROM `connections` WHERE first = '" + bitsid + "' AND second = '" + connectee + "';";
             stmt = conn.createStatement();
-            stmt.executeUpdate(request_connect);
+            ResultSet rs = stmt.executeQuery(check);
+            while(rs.next()) {
+                flag = 10;
+            }
+                
             stmt.close();
 
-            String site = new String("/BITS_Connect/BITS-Connect/in/request_sent.html");
-            response.setStatus(response.SC_MOVED_TEMPORARILY);
-            response.setHeader("Location", site);
+            if(flag != 10){
+                String request_connect = "INSERT INTO `connections` VALUES ('"+bitsid+"', '"+connectee+"', '10');";
+                stmt = conn.createStatement();
+                stmt.executeUpdate(request_connect);
+                stmt.close();
+
+                String site = new String("/BITS_Connect/BITS-Connect/in/request_sent.html");
+                response.setStatus(response.SC_MOVED_TEMPORARILY);
+                response.setHeader("Location", site);
+            }
+            else {
+                String site = new String("/BITS_Connect/BITS-Connect/in/request_sent.html");
+                response.setStatus(response.SC_MOVED_TEMPORARILY);
+                response.setHeader("Location", site);
+            }
+
+                
 
         }
 

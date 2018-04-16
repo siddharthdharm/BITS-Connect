@@ -97,11 +97,9 @@
                     String fn = rs.getString("first_name");
                     String ln = rs.getString("last_name");
                     String em = rs.getString("email");
-                    String br = rs.getString("branch");
                     fname = fn;
                     lname = ln;
                     email = em;
-                    branch = br;
                 }
                 stmt.close();
 
@@ -116,8 +114,13 @@
                     String pt = rs.getString("dp");
                     String bi = rs.getString("bio");
                     String in = rs.getString("interests");
+                    String pro = rs.getString("projects");
+                    String inter = rs.getString("internships");
+                    String ski = rs.getString("skills");
+                    String br = rs.getString("branch");
                     /*String gy = rs.getString("gradyear");*/
                     path = pt;
+                    branch = br;
                     location = lo;
                     contact = ct;
                     campus = cm;
@@ -135,11 +138,9 @@
                     String fn = rs.getString("first_name");
                     String ln = rs.getString("last_name");
                     String em = rs.getString("email");
-                    String br = rs.getString("branch");
                     fname = fn;
                     lname = ln;
                     email = em;
-                    branch = br;
                 }
                 stmt.close();
 
@@ -154,8 +155,13 @@
                     String pt = rs.getString("dp");
                     String bi = rs.getString("bio");
                     String in = rs.getString("interests");
+                    String pro = rs.getString("projects");
+                    String inter = rs.getString("internships");
+                    String ski = rs.getString("skills");
+                    String br = rs.getString("branch");
                     /*String gy = rs.getString("gradyear");*/
                     path = pt;
+                    branch = br;
                     location = lo;
                     contact = ct;
                     campus = cm;
@@ -211,7 +217,6 @@
         <nav>
             <ul class="topnav">
                 <li><a class="active" href="profile.jsp">BITS | Connect</a></li>
-                <!-- <li><a href="#contact">Search</a></li> -->
                 <div class="search-container">
                     <form action="search.jsp">
                         <input type="text" placeholder="Search.." name="search">

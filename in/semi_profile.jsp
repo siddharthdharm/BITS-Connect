@@ -73,6 +73,9 @@
     String interests = "";
     String newid = "";
     String accept = "";
+    String bitsid = "";
+    int flag = 0;
+
 
     try{
 
@@ -87,7 +90,7 @@
         else {
 
             newid = request.getParameter("newid");
-            accept = request.getParameter("accept");
+            bitsid = session.getAttribute("bitsid").toString();
             String query = "(SELECT * FROM `personal_details` WHERE bitsid = '"+newid+"');";
             stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(query);
@@ -100,6 +103,16 @@
                 branch = br;
             }
             stmt.close();
+
+            query = "SELECT * FROM `connections` WHERE (first = '"+bitsid+"' AND second = '"+newid+"' AND request = '10') OR (first = '"+newid+"' AND second = '"+bitsid+"' AND request = '10');";
+            stmt = conn.createStatement();
+            ResultSet rs1 = stmt.executeQuery(query);
+            while(rs1.next()) {
+                flag = 1;
+            }
+            stmt.close();
+
+
 
             query = "SELECT * FROM `profile` WHERE bitsid = '"+newid+"';";
             stmt = conn.createStatement();
@@ -120,6 +133,7 @@
         }
         
         path = path.substring(path.lastIndexOf("images"));
+
 
         conn.close();
     
@@ -167,7 +181,7 @@
                         <button type="submit"><i class="fa fa-search"></i></button>
                     </form>
                 </div>
-                <li class="right"><a href="logout.jsp">Logout</a></li>        
+                <li class="right"><a href="logout.jsp">Logout</a></li>
             </ul>
         </nav>
         <!--Edited code ends-->
@@ -285,7 +299,7 @@
                                     <div class="o-content__body">
                                         <div class="o-media__figure">
                                             <div class="c-number  t-primary-color">
-                                                <% out.println(bio); %>
+                                                <% out.println("adsf"); %>
                                             </div>
                                         </div>
                                     </div>
@@ -359,7 +373,7 @@
                         <div class="o-section__content  t-section__content  ">
                             
                             <div class="o-grid">
-                                <% out.println(skills); %>
+                                <% //out.println(skills); %>
                             </div>
 
                         </div>
@@ -395,15 +409,14 @@
 
                                     <div class="o-grid__col-md-3  o-grid__col-sm-6">
                                         <div class="o-content">
-                                            <div class="o-content__body">                                                
+                                            <div class="o-content__body">                                         
                                                 <%
-                                                    if(accept.equals("199")){
+                                                    if(request.getParameter("accept").equals("199") && flag != 1){
+                                                        out.println("<button onclick=\"window.location.href='connect.jsp?connectee=" + newid + "'\">Connect</button>");
+                                                    }
+                                                    if(flag == 1){
                                                         out.println("<button onclick=\"window.location.href='accept.jsp?connectee=" + newid + "'\">Accept</button>");
                                                     }
-                                                    else {
-                                                        out.println("<button onclick=\"window.location.href='connect.jsp?connectee=" + newid + "'\">Accept Connect</button>");
-                                                    }
-                                                    
                                                 %>
                                             </div>
                                         </div><!-- /o-content -->

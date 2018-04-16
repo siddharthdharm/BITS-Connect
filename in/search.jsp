@@ -3,6 +3,10 @@
 <head>
 	 <title>Results</title>
 	 <link rel="stylesheet" href="css/main.css">
+	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <!-- Google Font: Lato -->
+        <link href='https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 	 <style type="text/css">
 	 	body {
 	 		background-color: rgb(41,42,42);
@@ -14,7 +18,13 @@
 
 	<nav>
         <ul class="topnav">
-            <li><a class="active" href="#">BITS | Connect</a></li>
+            <li><a class="active" href="profile.jsp">BITS | Connect</a></li>
+            <div class="search-container">
+                    <form action="search.jsp">
+                        <input type="text" placeholder="Search.." name="search">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                    </form>
+            </div>
             <li class="right"><a href="logout.jsp">Logout</a></li>         
         </ul>
     </nav>
@@ -43,6 +53,7 @@
 	    String lname[] = new String[1000];
 	    int k = 0;
 	    String bitsid = "";
+	    //String search[] = new String[1000];
 
 	    try{
 
@@ -58,9 +69,9 @@
 
 	            bitsid = session.getAttribute("bitsid").toString();
 	            search = request.getParameter("search");
+	            //search = se.split(" ");
 
 	            k = 0;
-
 	            String query = "SELECT * FROM `personal_details` WHERE (first_name = '"+search+"' OR last_name = '"+search+"' OR bitsid = '"+search+"');";
 	            stmt = conn.createStatement();
 	            ResultSet rs = stmt.executeQuery(query);
@@ -79,16 +90,20 @@
 
 	        for(int i = 1; i <= k; i++) {
 	        	String query = "SELECT * FROM `connections` WHERE (first = '" + bitsid + "' AND second = '" + newid[k-1] + "') OR (first = '" + newid[k-1] + "' AND second = '" + bitsid + "');";
+
 	            stmt = conn.createStatement();
 	            ResultSet rs = stmt.executeQuery(query);
-
 	            if(rs.next()) {
-	            	out.println(i + ". <a href=\"profile.jsp?newid=" + newid[k-1] + "\">" + fname[k-1] + " " + lname[k-1] + "</a>");
+	            	String req = rs.getString("request");
+	            	if(req.equals("10"))
+	            		out.println(i + ". <a href=\"semi_profile.jsp?newid=" + newid[k-1] + "&accept=199\">" + fname[k-1] + " " + lname[k-1] + "</a>");
+	            	if(req.equals("20"))
+	            		out.println(i + ". <a href=\"profile.jsp?newid=" + newid[k-1] + "\">" + fname[k-1] + " " + lname[k-1] + "</a>");
 	        	}
 	        	else {
-	        		out.println(i + ". <a href=\"semi_profile.jsp?newid=" + newid[k-1] + "\">" + fname[k-1] + " " + lname[k-1] + "</a>");
+	        		out.println(i + ". <a href=\"semi_profile.jsp?newid=" + newid[k-1] + "&accept=199\">" + fname[k-1] + " " + lname[k-1] + "</a>");
 	        	}
-
+	            
 	            stmt.close();
 	    	}
 

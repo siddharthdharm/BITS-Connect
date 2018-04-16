@@ -11,13 +11,12 @@
     final String PASS = "";
     Connection conn = null;
     Statement stmt = null;
+    String query = "UPDATE `profile` SET";
 
     try{
 
         Class.forName("com.mysql.jdbc.Driver");
         conn = DriverManager.getConnection(DB_URL,USER,PASS);
-        
-        int count = 0;
 
         if (session.getAttribute("bitsid") == null || session.getAttribute("bitsid").equals("")){
             String site = new String("/BITS_Connect/BITS-Connect/expired.html");
@@ -36,21 +35,57 @@
             String gradyear = request.getParameter("gradyear").trim();
             String location = request.getParameter("location").trim();
             String contact = request.getParameter("contact").trim();
-            String past_projects = request.getParameter("pastprojects").trim();
-            String on_projects = request.getParameter("onprojects").trim();
+            String projects = request.getParameter("projects").trim();
+            String skills = request.getParameter("skills").trim();
             String internships = request.getParameter("internships").trim();
             String clubs = request.getParameter("clubs").trim();
             String linkedin = request.getParameter("linkedin").trim();
 
+            if(branch.equals("") == false)
+            	query += " branch = '" + branch + "', ";
 
-            String insert = "UPDATE `profile` SET branch = '"+branch+"', bio = '"+bio+"', on_projects = '"+on_projects+"', past_projects = '"+past_projects+"', gradyear = '"+gradyear+"', location = '"+location+"', internships = '"+internships+"', clubs = '"+clubs+"', linkedin = '"+linkedin+"', contact = '"+contact+"', interests = '"+interests+"', campus = '"+campus+"' WHERE bitsid = '"+bitsid+"';";
-            out.println(insert);
+            if(bio.equals("") == false)
+            	query += " bio = '" + bio + "', ";
+
+            if(projects.equals("") == false)
+            	query += " projects = '" + projects + "', ";
+
+            if(interests.equals("") == false)
+            	query += " interests = '" + interests + "', ";
+
+            if(campus.equals("") == false)
+            	query += " campus = '" + campus + "', ";
+
+            if(gradyear.equals("") == false)
+            	query += " gradyear = '" + gradyear + "', ";
+
+            if(location.equals("") == false)
+            	query += " location = '" + location + "', ";
+
+            if(contact.equals("") == false)
+            	query += " contact = '" + contact + "', ";
+
+            if(skills.equals("") == false)
+            	query += " skills = '" + skills + "', ";
+
+            if(internships.equals("") == false)
+            	query += " internships = '" + internships + "', ";
+
+            if(clubs.equals("") == false)
+            	query += " clubs = '" + clubs + "', ";
+
+            if(linkedin.equals("") == false)
+            	query += " linkedin = '" + linkedin + "', ";
+
+            query = query.substring(0,query.length() - 2);
+            query += " WHERE bitsid = '"+bitsid+"';";
+
+            out.println(query);
 
             //String insert1 = "UPDATE `personal_details` SET branch "
 
-
             stmt = conn.createStatement();
-            stmt.executeUpdate(insert);
+            stmt.executeUpdate(query);
             stmt.close();
 
 

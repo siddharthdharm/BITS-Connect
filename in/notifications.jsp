@@ -125,6 +125,8 @@
 	        	out.println("<br><br><br><br><center><h1>No new notifications.</h1></<enter>");
 		    }
 
+		    out.println("<br><br><br>");
+
 	        for(int i = 0; i < k; i++) {
 		        query = "SELECT * FROM `personal_details` WHERE bitsid = '" + ids[i] + "';";
 	        	stmt = conn.createStatement();
