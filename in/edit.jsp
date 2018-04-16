@@ -12,6 +12,7 @@
     Connection conn = null;
     Statement stmt = null;
     String query = "UPDATE `profile` SET";
+    String newquery = "UPDATE `personal_details` SET";
 
     try{
 
@@ -42,7 +43,10 @@
             String linkedin = request.getParameter("linkedin").trim();
 
             if(branch.equals("") == false)
+            {
             	query += " branch = '" + branch + "', ";
+            	newquery += " branch = '" + branch + "' WHERE bitsid = '" + bitsid + "';";
+            }
 
             if(bio.equals("") == false)
             	query += " bio = '" + bio + "', ";
@@ -86,6 +90,7 @@
 
             stmt = conn.createStatement();
             stmt.executeUpdate(query);
+            stmt.executeUpdate(newquery);
             stmt.close();
 
 
