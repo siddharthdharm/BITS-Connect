@@ -81,7 +81,7 @@
 		    }
 
 	        for(int i = 0; i < k; i++) {
-	        		out.println("<center><h2>" + (i+1) + ". " + "<a href=\"semi_profile.jsp?newid=" + ids[i] + "\">" + fname[i] + " " + lname[i] + "</a> wants to connect with you. </h2></center>");
+	        		out.println("<center><h2>" + (i+1) + ". " + "<a href=\"semi_profile.jsp?newid=" + ids[i] + "&accept=199" + "\">" + fname[i] + " " + lname[i] + "</a> wants to connect with you. </h2></center>");
 	    	}
 
 

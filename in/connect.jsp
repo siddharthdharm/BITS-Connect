@@ -35,10 +35,6 @@
             stmt.executeUpdate(request_connect);
             stmt.close();
 
-            
-
-
-
             String site = new String("/BITS_Connect/BITS-Connect/in/request_sent.html");
             response.setStatus(response.SC_MOVED_TEMPORARILY);
             response.setHeader("Location", site);

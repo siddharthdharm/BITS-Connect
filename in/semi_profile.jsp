@@ -72,6 +72,7 @@
     String bio = "";
     String interests = "";
     String newid = "";
+    String accept = "";
 
     try{
 
@@ -86,6 +87,7 @@
         else {
 
             newid = request.getParameter("newid");
+            accept = request.getParameter("accept");
             String query = "(SELECT * FROM `personal_details` WHERE bitsid = '"+newid+"');";
             stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(query);
@@ -395,7 +397,13 @@
                                         <div class="o-content">
                                             <div class="o-content__body">                                                
                                                 <%
-                                                    out.println("<button onclick=\"window.location.href='connect.jsp?connectee=" + newid + "'\">Connect</button>");
+                                                    if(accept.equals("199")){
+                                                        out.println("<button onclick=\"window.location.href='accept.jsp?connectee=" + newid + "'\">Accept</button>");
+                                                    }
+                                                    else {
+                                                        out.println("<button onclick=\"window.location.href='connect.jsp?connectee=" + newid + "'\">Accept Connect</button>");
+                                                    }
+                                                    
                                                 %>
                                             </div>
                                         </div><!-- /o-content -->
