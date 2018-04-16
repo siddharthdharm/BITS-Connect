@@ -25,7 +25,7 @@
         int count = 0;
         String timeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime());
 
-        String check = "SELECT * FROM `personal_details` WHERE email = '"+email+"';";
+        String check = "SELECT * FROM `personal_details` WHERE email = '"+email+"' OR bitsid = '"+bitsid+"';";
         stmt = conn.createStatement();
         ResultSet rs = stmt.executeQuery(check);
         while(rs.next()) {
@@ -33,10 +33,8 @@
         }
         stmt.close();
 
-
-
         if(count > 0)
-            out.println("<b>A user with the specified email already exists!!</b>");
+            out.println("<b>A user with the specified Email/BITSID already exists!!</b>");
 
         else{
 

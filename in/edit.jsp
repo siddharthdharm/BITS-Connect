@@ -46,6 +46,9 @@
             {
             	query += " branch = '" + branch + "', ";
             	newquery += " branch = '" + branch + "' WHERE bitsid = '" + bitsid + "';";
+                stmt = conn.createStatement();
+                stmt.executeUpdate(newquery);
+                stmt.close();
             }
 
             if(bio.equals("") == false)
@@ -84,15 +87,9 @@
             query = query.substring(0,query.length() - 2);
             query += " WHERE bitsid = '"+bitsid+"';";
 
-            out.println(query);
-
-            //String insert1 = "UPDATE `personal_details` SET branch "
-
             stmt = conn.createStatement();
             stmt.executeUpdate(query);
-            stmt.executeUpdate(newquery);
             stmt.close();
-
 
             String site = new String("/BITS_Connect/BITS-Connect/in/success.html");
             response.setStatus(response.SC_MOVED_TEMPORARILY);
