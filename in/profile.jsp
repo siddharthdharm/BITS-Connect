@@ -76,6 +76,8 @@
     String internships = "";
     String skills = "";
     String projects = "";
+    String linkedin = "";
+    String clubs = "";
 
     try{
 
@@ -121,6 +123,9 @@
                     String inter = rs.getString("internships");
                     String ski = rs.getString("skills");
                     String br = rs.getString("branch");
+                    String link = rs.getString("linkedin");
+                    String cl = rs.getString("clubs");
+                    clubs = cl;
                     path = pt;
                     branch = br;
                     location = lo;
@@ -132,6 +137,7 @@
                     skills = ski;
                     projects = pro;
                     internships = inter;
+                    linkedin = link;
                 }
                 stmt.close();
             }
@@ -164,6 +170,9 @@
                     String inter = rs.getString("internships");
                     String ski = rs.getString("skills");
                     String br = rs.getString("branch");
+                    String link = rs.getString("linkedin");
+                    String cl = rs.getString("clubs");
+                    clubs = cl;
                     path = pt;
                     branch = br;
                     location = lo;
@@ -175,6 +184,7 @@
                     skills = ski;
                     projects = pro;
                     internships = inter;
+                    linkedin = link;
                 }
                 stmt.close();
             }
@@ -328,21 +338,6 @@
                                                 </div><!-- /o-content -->
                                             </div><!-- /o-grid__col -->
 
-                                            <!-- <div class="o-grid__col-md-3  o-grid__col-sm-6">
-                                                <div class="a-header  o-content">
-                                                    <div class="o-content__body">
-                                                        <a href="#" target="_blank" class="t-link-container">
-                                                            <h4>Web</h4>
-                                                            <p>
-                                                                <span class="t-link-container__item--blended">
-                                                                    ruventhemes.com
-                                                                </span>
-                                                            </p>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div> -->
-
                                             <div class="o-grid__col-md-3  o-grid__col-sm-6">
                                                 <div class="a-header  o-content">
                                                     <div class="o-content__body">
@@ -358,6 +353,23 @@
                                                 </div><!-- /o-content -->
                                             </div><!-- /o-grid__col -->
 
+                                            <div class="o-grid__col-md-3  o-grid__col-sm-6">
+                                                <div class="a-header  o-content">
+                                                    <div class="o-content__body">
+                                                        <a href="#" target="_blank" class="t-link-container">
+                                                            <h4>LinkedIn</h4>
+                                                            <p>
+                                                                <span class="t-link-container__item--blended">
+                                                                    <% out.println("<a href=\""+linkedin+"\">Profile</a>"); %>
+                                                                </span>
+                                                            </p>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="o-grid__col-md-3  o-grid__col-sm-6">
+                                        
                                         </div><!-- /o-grid -->
                                     </div><!-- /c-header__contact -->
 
@@ -390,9 +402,6 @@
                                 <h2 class="o-section__heading">
                                     Bio
                                 </h2>
-                                <div class="o-content__body  o-section__description">
-                                    What I am all about.
-                                </div>
                             </div>
                         </header><!-- /o-section__header -->
 
@@ -417,7 +426,6 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div><!-- /o-section__content -->
 
                     </div><!-- /o-section__container -->
@@ -428,7 +436,7 @@
 
 
             <!-- ################################ -->
-            <!-- ########## INTERESTS ########### -->
+            <!-- ############ INTERESTS ############# -->
             <!-- ################################ -->
             
             <section class="o-section  t-section  ">
@@ -444,38 +452,21 @@
                                 <h2 class="o-section__heading">
                                     Interests
                                 </h2>
-                                <!-- <div class="o-content__body  o-section__description">
-                                    Batman would be jealous.
-                                </div> -->
                             </div>
                         </header><!-- /o-section__header -->
 
-                        <div class="o-section__content  t-section__content  ">
-                            
-                            <div class="o-grid">
-
-                                <% out.println(interests); %>
-
-                                <!-- <div class="o-grid__col-sm-6">
-                                    <div class="o-media  o-media--block  o-content">
-                                        <div class="o-media__body  o-content__body">
-                                            <h3>Advanced CSS</h3>
+                        <div class="o-section__content  t-section__content  ">                        
+                            <div class="o-content">
+                                <div class="c-intro">
+                                    <div class="o-content__body">
+                                        <div class="o-media__figure">
+                                            <div class="c-number  t-primary-color">
+                                                <% out.println(interests); %>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-
-                                
-
-                                <div class="o-grid__col-sm-6">
-                                    <div class="o-media  o-media--block  o-content">
-                                        <div class="o-media__body  o-content__body">
-                                            <font ><h3>Object-oriented PHP</h3></font>
-                                        </div>
-                                    </div>
-                                </div> -->
-
-                            </div><!-- /o-grid -->
-
+                            </div>
                         </div><!-- /o-section__content -->
 
                     </div><!-- /o-section__container -->
@@ -485,10 +476,10 @@
 
 
             <!-- ################################ -->
-            <!-- ############ HEADER ############ -->
+            <!-- ########## SkILLS ########### -->
             <!-- ################################ -->
             
-            <!-- <section class="o-section  t-section  ">
+            <section class="o-section  t-section  ">
 
                 <div class="o-section__header-bg  t-section__header"></div>
                 <div class="o-section__content-bg  t-section__content"></div>
@@ -499,70 +490,36 @@
                         <header class="o-section__header  t-section__header">
                             <div class="o-content">
                                 <h2 class="o-section__heading">
-                                    Awards
+                                    Skills
                                 </h2>
-                                <div class="o-content__body  o-section__description">
-                                    Happy times!
+                            </div>
+                        </header><!-- /o-section__header -->
+
+                        <div class="o-section__content  t-section__content  ">                        
+                            <div class="o-content">
+                                <div class="c-intro">
+                                    <div class="o-content__body">
+                                        <div class="o-media__figure">
+                                            <div class="c-number  t-primary-color">
+                                                <% out.println(skills); %>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </header>
+                        </div><!-- /o-section__content -->
 
-                        <div class="o-section__content  t-section__content  ">
-                            
-                            <div class="o-grid">
+                    </div><!-- /o-section__container -->
+                </div><!-- /o-container -->
 
-                                <div class="o-grid__col-md-4  o-grid__col-sm-6">
-                                    <div class="o-content">
-                                        <hr class="c-deco-line  t-primary-color-line" />
-                                        <div class="o-content__body">
-                                            <h3>Unicorn Developer Award 2016</h3>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, justo eget porttitor mauris sit amet felis. Neque id cursus faucibus.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="o-grid__col-md-4  o-grid__col-sm-6">
-                                    <div class="o-content">
-                                        <hr class="c-deco-line  t-primary-color-line" />
-                                        <div class="o-content__body">
-                                            <h3>Website of the Year Award 2015</h3>
-                                            <p>
-                                                Praesent dapibus dolor sit amet, justo eget porttitor mauris sit amet. Neque id cursus faucibus.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="o-grid__col-md-4  o-grid__col-sm-6">
-                                    <div class="o-content">
-                                        <hr class="c-deco-line  t-primary-color-line" />
-                                        <div class="o-content__body">
-                                            <h3>1st Place at CSShacker Conference</h3>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, justo eget porttitor mauris sit amet felis. Neque id cursus faucibus.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div>
-
-            </section> -->
-
+            </section><!-- /o-section -->
 
 
             <!-- ################################ -->
-            <!-- ########### PORTFOLIO ########## -->
+            <!-- ############ PROJECTS ############# -->
             <!-- ################################ -->
             
-            <!-- <section class="o-section  t-section  ">
+            <section class="o-section  t-section  ">
 
                 <div class="o-section__header-bg  t-section__header"></div>
                 <div class="o-section__content-bg  t-section__content"></div>
@@ -573,124 +530,36 @@
                         <header class="o-section__header  t-section__header">
                             <div class="o-content">
                                 <h2 class="o-section__heading">
-                                    Portfolio
+                                    Projects
                                 </h2>
-                                <div class="o-content__body  o-section__description">
-                                    Here it gets interesting.
+                            </div>
+                        </header><!-- /o-section__header -->
+
+                        <div class="o-section__content  t-section__content  ">                        
+                            <div class="o-content">
+                                <div class="c-intro">
+                                    <div class="o-content__body">
+                                        <div class="o-media__figure">
+                                            <div class="c-number  t-primary-color">
+                                                <% out.println(projects); %>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </header>
+                        </div><!-- /o-section__content -->
 
-                        <div class="o-section__content  t-section__content  o-section__full-bottom-space">
-                            
-                            <div class="o-grid  o-grid--gallery">
+                    </div><!-- /o-section__container -->
+                </div><!-- /o-container -->
 
-                                <div class="o-grid__col-sm-6">
-                                    <a class="c-image-overlay  t-image-overlay  js-lightbox" href="assets/images/portfolio/1_full.jpg" data-lightbox-hidpi="" title="Musée du Louvre" data-lightbox-gallery="portfolio">
-                                        <img src="assets/images/portfolio/1_thumb.jpg" alt="">
-                                        <div class="c-image-overlay__content">
-                                            <h3>
-                                                Musée du Louvre
-                                            </h3>
-                                            <hr class="c-image-overlay__deco-line  t-image-overlay__deco-line" />
-                                            <p>
-                                                Fusce lacinia arcu et nulla. Nulla vitae mauris non felis mollis faucibus. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                                            </p>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="o-grid__col-sm-6">
-                                    <a class="c-image-overlay  t-image-overlay  js-lightbox" href="assets/images/portfolio/2_full.jpg" data-lightbox-hidpi="" title="Tunnel Effect" data-lightbox-gallery="portfolio">
-                                        <img src="assets/images/portfolio/2_thumb.jpg" alt="">
-                                        <div class="c-image-overlay__content">
-                                            <h3>
-                                                Tunnel Effect
-                                            </h3>
-                                            <hr class="c-image-overlay__deco-line  t-image-overlay__deco-line" />
-                                            <p>
-                                                Fusce lacinia arcu et nulla. Nulla vitae mauris non felis mollis faucibus. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                                            </p>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="o-grid__col-sm-6">
-                                    <a class="c-image-overlay  t-image-overlay  js-lightbox" href="assets/images/portfolio/3_full.jpg" data-lightbox-hidpi="" title="New York, New York" data-lightbox-gallery="portfolio">
-                                        <img src="assets/images/portfolio/3_thumb.jpg" alt="">
-                                        <div class="c-image-overlay__content">
-                                            <h3>
-                                                New York, New York
-                                            </h3>
-                                            <hr class="c-image-overlay__deco-line  t-image-overlay__deco-line" />
-                                            <p>
-                                                Fusce lacinia arcu et nulla. Nulla vitae mauris non felis mollis faucibus. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                                            </p>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="o-grid__col-sm-6">
-                                    <a class="c-image-overlay  t-image-overlay  js-lightbox" href="assets/images/portfolio/4_full.jpg" data-lightbox-hidpi="" title="Sky High" data-lightbox-gallery="portfolio">
-                                        <img src="assets/images/portfolio/4_thumb.jpg" alt="">
-                                        <div class="c-image-overlay__content">
-                                            <h3>
-                                                Sky High
-                                            </h3>
-                                            <hr class="c-image-overlay__deco-line  t-image-overlay__deco-line" />
-                                            <p>
-                                                Fusce lacinia arcu et nulla. Nulla vitae mauris non felis mollis faucibus. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                                            </p>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="o-grid__col-sm-6">
-                                    <a class="c-image-overlay  t-image-overlay  js-lightbox" href="assets/images/portfolio/5_full.jpg" data-lightbox-hidpi="" title="The Eiffel Tower" data-lightbox-gallery="portfolio">
-                                        <img src="assets/images/portfolio/5_thumb.jpg" alt="">
-                                        <div class="c-image-overlay__content">
-                                            <h3>
-                                                The Eiffel Tower
-                                            </h3>
-                                            <hr class="c-image-overlay__deco-line  t-image-overlay__deco-line" />
-                                            <p>
-                                                Fusce lacinia arcu et nulla. Nulla vitae mauris non felis mollis faucibus. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                                            </p>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="o-grid__col-sm-6">
-                                    <a class="c-image-overlay  t-image-overlay  js-lightbox" href="assets/images/portfolio/6_full.jpg" data-lightbox-hidpi="" title="Reaching the Clouds" data-lightbox-gallery="portfolio">
-                                        <img src="assets/images/portfolio/6_thumb.jpg" alt="">
-                                        <div class="c-image-overlay__content">
-                                            <h3>
-                                                Reaching the Clouds
-                                            </h3>
-                                            <hr class="c-image-overlay__deco-line  t-image-overlay__deco-line" />
-                                            <p>
-                                                Fusce lacinia arcu et nulla. Nulla vitae mauris non felis mollis faucibus. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                                            </p>
-                                        </div>
-                                    </a>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div>
-
-            </section> -->
-
+            </section><!-- /o-section -->
 
 
             <!-- ################################ -->
-            <!-- ############ CLIENTS ########### -->
+            <!-- ############ INTERNSHIPS ############# -->
             <!-- ################################ -->
             
-            <!-- <section class="o-section  t-section">
+            <section class="o-section  t-section  ">
 
                 <div class="o-section__header-bg  t-section__header"></div>
                 <div class="o-section__content-bg  t-section__content"></div>
@@ -701,66 +570,69 @@
                         <header class="o-section__header  t-section__header">
                             <div class="o-content">
                                 <h2 class="o-section__heading">
-                                    Clients
+                                    Internships
                                 </h2>
-                                <div class="o-content__body  o-section__description">
-                                    Happy people.
+                            </div>
+                        </header><!-- /o-section__header -->
+
+                        <div class="o-section__content  t-section__content  ">                        
+                            <div class="o-content">
+                                <div class="c-intro">
+                                    <div class="o-content__body">
+                                        <div class="o-media__figure">
+                                            <div class="c-number  t-primary-color">
+                                                <% out.println(internships); %>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </header>
+                        </div><!-- /o-section__content -->
 
-                        <div class="o-section__content  t-section__content  ">
-                            
-                            <ul class="c-clients  o-content">
-                                <li>
-                                    <a href="http://example.com" target="_blank">
-                                        <img src="assets/images/clients/bbc.png" alt="">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="http://example.com" target="_blank">
-                                        <img src="assets/images/clients/disney.png" alt="">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="http://example.com" target="_blank">
-                                        <img src="assets/images/clients/github.png" alt="">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="http://example.com" target="_blank">
-                                        <img src="assets/images/clients/google.png" alt="">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="http://example.com" target="_blank">
-                                        <img src="assets/images/clients/html5.png" alt="">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="http://example.com" target="_blank">
-                                        <img src="assets/images/clients/kickstarter.png" alt="">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="http://example.com" target="_blank">
-                                        <img src="assets/images/clients/youtube.png" alt="">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="http://example.com" target="_blank">
-                                        <img src="assets/images/clients/vimeo.png" alt="">
-                                    </a>
-                                </li>
-                            </ul>
+                    </div><!-- /o-section__container -->
+                </div><!-- /o-container -->
 
-                        </div>
+            </section><!-- /o-section -->
 
-                    </div>
-                </div>
 
-            </section> -->
+            <!-- ################################ -->
+            <!-- ############ CLUBS ############# -->
+            <!-- ################################ -->
+            
+            <section class="o-section  t-section  ">
 
+                <div class="o-section__header-bg  t-section__header"></div>
+                <div class="o-section__content-bg  t-section__content"></div>
+
+                <div class="o-container">
+                    <div class="o-section__container">
+
+                        <header class="o-section__header  t-section__header">
+                            <div class="o-content">
+                                <h2 class="o-section__heading">
+                                    Clubs/Departments
+                                </h2>
+                            </div>
+                        </header><!-- /o-section__header -->
+
+                        <div class="o-section__content  t-section__content  ">                        
+                            <div class="o-content">
+                                <div class="c-intro">
+                                    <div class="o-content__body">
+                                        <div class="o-media__figure">
+                                            <div class="c-number  t-primary-color">
+                                                <% out.println(clubs); %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /o-section__content -->
+
+                    </div><!-- /o-section__container -->
+                </div><!-- /o-container -->
+
+            </section><!-- /o-section -->
 
 
             <!-- ################################ -->
@@ -780,9 +652,6 @@
                                 <h2 class="o-section__heading">
                                     Contact
                                 </h2>
-                                <div class="o-content__body  o-section__description">
-                                    Call me, maybe.
-                                </div>
                             </div>
                         </header><!-- /o-section__header -->
 
@@ -827,6 +696,21 @@
                                             </div>
                                         </div><!-- /o-content -->
                                     </div><!-- /o-grid__col -->
+
+                                    <div class="o-grid__col-md-3  o-grid__col-sm-6">
+                                                <div class="a-header  o-content">
+                                                    <div class="o-content__body">
+                                                        <a href="#" target="_blank" class="t-link-container">
+                                                            <h4>LinkedIn</h4>
+                                                            <p>
+                                                                <span class="t-link-container__item--blended">
+                                                                    <% out.println("<a href=\""+linkedin+"\">Profile</a>"); %>
+                                                                </span>
+                                                            </p>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                    </div>
 
                                 </div><!-- /o-grid -->
                                 </div><!-- /c-footer__contact -->

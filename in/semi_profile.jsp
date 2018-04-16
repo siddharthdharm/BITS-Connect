@@ -123,11 +123,12 @@
                 String pt = rs.getString("dp");
                 String bi = rs.getString("bio");
                 String in = rs.getString("interests");
-                //String sk = rs.getString("skills");            
+                String sk = rs.getString("skills");
                 path = pt;
                 campus = cm;
                 bio = bi;
                 interests = in;
+                skills = sk;
             }
             stmt.close();
         }
@@ -174,7 +175,6 @@
         <nav>
             <ul class="topnav">
                 <li><a class="active" href="profile.jsp">BITS | Connect</a></li>
-                <!-- <li><a href="#contact">Search</a></li> -->
                 <div class="search-container">
                     <form action="search.jsp">
                         <input type="text" placeholder="Search.." name="search">
@@ -299,13 +299,12 @@
                                     <div class="o-content__body">
                                         <div class="o-media__figure">
                                             <div class="c-number  t-primary-color">
-                                                <% out.println("adsf"); %>
-                                            </div>
+                                                <% out.println(bio); %>
+                                            </div><br>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
                         </div><!-- /o-section__content -->
 
                     </div><!-- /o-section__container -->
@@ -316,7 +315,7 @@
 
 
             <!-- ################################ -->
-            <!-- ########## INTERESTS ########### -->
+            <!-- ############ INTERESTS ############# -->
             <!-- ################################ -->
             
             <section class="o-section  t-section  ">
@@ -332,17 +331,23 @@
                                 <h2 class="o-section__heading">
                                     Interests
                                 </h2>
-                                <!-- <div class="o-content__body  o-section__description">
-                                    Batman would be jealous.
-                                </div> -->
                             </div>
                         </header><!-- /o-section__header -->
 
-                        <div class="o-section__content  t-section__content  ">
-                            <div class="o-grid">
-                                <% out.println(interests); %>
-                            </div><!-- /o-grid -->
+                        <div class="o-section__content  t-section__content  ">                        
+                            <div class="o-content">
+                                <div class="c-intro">
+                                    <div class="o-content__body">
+                                        <div class="o-media__figure">
+                                            <div class="c-number  t-primary-color">
+                                                <% out.println(interests); %>
+                                            </div><br>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div><!-- /o-section__content -->
+
                     </div><!-- /o-section__container -->
                 </div><!-- /o-container -->
 
@@ -351,7 +356,7 @@
 
 
             <!-- ################################ -->
-            <!-- ############ SKILLS ############ -->
+            <!-- ########## SkILLS ########### -->
             <!-- ################################ -->
             
             <section class="o-section  t-section  ">
@@ -368,20 +373,26 @@
                                     Skills
                                 </h2>
                             </div>
-                        </header>
+                        </header><!-- /o-section__header -->
 
-                        <div class="o-section__content  t-section__content  ">
-                            
-                            <div class="o-grid">
-                                <% //out.println(skills); %>
+                        <div class="o-section__content  t-section__content  ">                        
+                            <div class="o-content">
+                                <div class="c-intro">
+                                    <div class="o-content__body">
+                                        <div class="o-media__figure">
+                                            <div class="c-number  t-primary-color">
+                                                <% out.println(skills); %>
+                                            </div><br>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+                        </div><!-- /o-section__content -->
 
-                        </div>
+                    </div><!-- /o-section__container -->
+                </div><!-- /o-container -->
 
-                    </div>
-                </div>
-
-            </section>
+            </section><!-- /o-section -->
 
 
             <!-- ################################ -->
