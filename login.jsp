@@ -17,8 +17,7 @@
         conn = DriverManager.getConnection(DB_URL,USER,PASS);
         
         String bitsid = request.getParameter("bitsid").trim();
-        String password = request.getParameter("password").trim();
-        
+        String password = request.getParameter("password");
 
         int count = 0;
 
@@ -29,11 +28,6 @@
             count++;
         }
         stmt.close();
-
-        /*String update = "UPDATE `personal_details` SET online = '1' WHERE bitsid = '"+bitsid+"' AND password = '"+password+"';";
-        stmt = conn.createStatement();
-        stmt.executeUpdate(update);
-        stmt.close();*/
 
         if(count > 0){
             session.setAttribute("bitsid",bitsid);

@@ -21,7 +21,7 @@
         String email = request.getParameter("email").trim();
         String bitsid = request.getParameter("bitsid").trim();
         String branch = request.getParameter("branch").trim();
-        String pwd = request.getParameter("password").trim();
+        String pwd = request.getParameter("password");
         int count = 0;
         String timeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime());
 
@@ -33,8 +33,12 @@
         }
         stmt.close();
 
-        if(count > 0)
-            out.println("<b>A user with the specified Email/BITSID already exists!!</b>");
+        if(count > 0){
+            String site = new String("exists.html");
+            response.setStatus(response.SC_MOVED_TEMPORARILY);
+            response.setHeader("Location", site);
+        }
+            
 
         else{
 
