@@ -89,20 +89,24 @@
 	        // Printing links
 
 	        for(int i = 1; i <= k; i++) {
-	        	String query = "SELECT * FROM `connections` WHERE (first = '" + bitsid + "' AND second = '" + newid[k-1] + "') OR (first = '" + newid[k-1] + "' AND second = '" + bitsid + "');";
-
+	        	String query = "SELECT * FROM `connections` WHERE (first = '" + bitsid + "' AND second = '" + newid[i-1] + "') OR (first = '" + newid[i-1] + "' AND second = '" + bitsid + "');";
 	            stmt = conn.createStatement();
 	            ResultSet rs = stmt.executeQuery(query);
-	            if(rs.next()) {
-	            	String req = rs.getString("request");
-	            	if(req.equals("10"))
-	            		out.println(i + ". <a href=\"semi_profile.jsp?newid=" + newid[k-1] + "&accept=199\">" + fname[k-1] + " " + lname[k-1] + "</a>");
-	            	if(req.equals("20"))
-	            		out.println(i + ". <a href=\"profile.jsp?newid=" + newid[k-1] + "\">" + fname[k-1] + " " + lname[k-1] + "</a>");
-	        	}
-	        	else {
-	        		out.println(i + ". <a href=\"semi_profile.jsp?newid=" + newid[k-1] + "&accept=199\">" + fname[k-1] + " " + lname[k-1] + "</a>");
-	        	}
+	            if(bitsid.equals(newid[i-1])){
+	        		out.println(i + ". <a href=\"profile.jsp\">" + fname[i-1] + " " + lname[i-1] + "</a>");
+	       		}
+	       		else{
+	       			if(rs.next()) {
+		            	String req = rs.getString("request");
+		            	if(req.equals("10"))
+		            		out.println(i + ". <a href=\"semi_profile.jsp?newid=" + newid[i-1] + "&accept=199\">" + fname[i-1] + " " + lname[i-1] + "</a>");
+		            	if(req.equals("20"))
+		            		out.println(i + ". <a href=\"profile.jsp?newid=" + newid[i-1] + "\">" + fname[i-1] + " " + lname[i-1] + "</a>");
+		        	}
+		        	else {
+		        		out.println(i + ". <a href=\"semi_profile.jsp?newid=" + newid[i-1] + "&accept=199\">" + fname[i-1] + " " + lname[i-1] + "</a>");
+		        	}
+	       		}
 	            
 	            stmt.close();
 	    	}

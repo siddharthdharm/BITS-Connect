@@ -91,6 +91,7 @@
 
             newid = request.getParameter("newid");
             bitsid = session.getAttribute("bitsid").toString();
+            
             String query = "(SELECT * FROM `personal_details` WHERE bitsid = '"+newid+"');";
             stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(query);
