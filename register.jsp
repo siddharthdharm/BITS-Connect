@@ -49,7 +49,8 @@
             stmt.executeUpdate(insert1);
             stmt.close();
 
-            String site = new String("in/initialize.html");
+            session.setAttribute("bitsid",bitsid);
+            String site = new String("in/edit.html");
             response.setStatus(response.SC_MOVED_TEMPORARILY);
             response.setHeader("Location", site);
 

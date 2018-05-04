@@ -6,6 +6,6 @@
         BITS PILANI HYDERABAD CAMPUS.--*/
 
     session.invalidate();
-    response.sendRedirect("/BITS_Connect/BITS-Connect/login.html");    
+    response.sendRedirect("/BITS_Connect/BITS-Connect/login.html"); 
 
 %>

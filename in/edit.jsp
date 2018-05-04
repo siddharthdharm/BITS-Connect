@@ -41,14 +41,19 @@
             String internships = request.getParameter("internships").trim();
             String clubs = request.getParameter("clubs").trim();
             String linkedin = request.getParameter("linkedin").trim();
+            String pwd = request.getParameter("password");
 
+
+            
             if(branch.equals("") == false)
             {
             	query += " branch = '" + branch + "', ";
-            	newquery += " branch = '" + branch + "' WHERE bitsid = '" + bitsid + "';";
-                stmt = conn.createStatement();
-                stmt.executeUpdate(newquery);
-                stmt.close();
+            	newquery += " branch = '" + branch + "', ";
+            }
+
+
+            if(pwd.equals("") == false) {
+                newquery += " password = '" + pwd + "', ";
             }
 
             if(bio.equals("") == false)
@@ -56,6 +61,7 @@
 
             if(projects.equals("") == false)
             	query += " projects = '" + projects + "', ";
+
 
             if(interests.equals("") == false)
             	query += " interests = '" + interests + "', ";
@@ -78,6 +84,8 @@
             if(internships.equals("") == false)
             	query += " internships = '" + internships + "', ";
 
+
+
             if(clubs.equals("") == false)
             	query += " clubs = '" + clubs + "', ";
 
@@ -86,6 +94,14 @@
 
             query = query.substring(0,query.length() - 2);
             query += " WHERE bitsid = '"+bitsid+"';";
+
+            newquery = newquery.substring(0,newquery.length() - 2);
+            newquery += " WHERE bitsid = '" + bitsid + "';";
+
+            /*stmt = conn.createStatement();
+            stmt.executeUpdate(newquery);
+            stmt.close();*/
+
 
             stmt = conn.createStatement();
             stmt.executeUpdate(query);

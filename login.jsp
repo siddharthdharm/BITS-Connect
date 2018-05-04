@@ -15,6 +15,12 @@
 
         Class.forName("com.mysql.jdbc.Driver");
         conn = DriverManager.getConnection(DB_URL,USER,PASS);
+
+        /*if (session.getAttribute("bitsid") != null || session.getAttribute("bitsid").equals("") == false){
+            out.println("ahsdk");
+            session.invalidate();
+            response.sendRedirect("/BITS_Connect/BITS-Connect/login.jsp");
+        }*/
         
         String bitsid = request.getParameter("bitsid").trim();
         String password = request.getParameter("password");
